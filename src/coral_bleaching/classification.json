@@ -1,0 +1,24 @@
+[
+    {"family": "Acroporidae", "family_typos": ["Acropiridae"], "genus": ["Acropora", "Montipora"], "species": ["Acropora hyacinthus", "Acropora nasuta", "Acropora palmata", "Acropora grandis"]},
+    {"family": "Agariciidae", "family_typos": ["Agariicidae", "Agaricidae"], "genus": ["Acropora"], "species": ["Acropora hyacinthus", "Acropora nasuta", "Acropora palmata", "Agaricia agaricites"]},
+    {"family": "Alcyoniidae"},
+    {"family": "Dendrophylliidae", "family_typos": ["Dendrophyllidae"]},
+    {"family": "Diploastreidae", "genus": ["Diploastrea"], "species": ["Diploastrea heliopora"], "species_typos": ["Diploastrea heliopore"]},
+    {"family": "Euphyllidae", "family_typos": ["Ephyllidae"], "genus": ["Galaxea"]},
+    {"family": "Faviidae", "family_typos": ["Ephyllidae"], "genus": ["Favia"]},
+    {"family": "Fungiidae", "family_typos": ["Fungidae", "Fungiid"], "genus": ["Fungia", "Ctenactis"]},
+    {"family": "Leptastreidae", "genus": ["Leptastrea"]},
+    {"family": "Meandrinidae"},
+    {"family": "Merulinidae", "genus": ["Echinopora", "Goniastrea", "Pectinia", "Platygyra"]},
+    {"family": "Milleporidae", "family_typos": ["Milliporidae"]},
+    {"family": "Montastraeidae", "genus": ["Montastrea"]},
+    {"family": "Mussidae"},
+    {"family": "Oculinidae"},
+    {"family": "Pocilloporidae", "family_typos": ["Pocillipordae", "Pocilliporodae", "Pocciloporidae", "Pocillopordae"], "genus": ["Pocillopora"]},
+    {"family": "Poritidae", "family_typos": ["Pritidae"], "genus": ["Porites"]},
+    {"family": "Siderastreidae", "family_typos": ["Siderasteridae", "Siderastridae", "Siderastriedae"]},
+    {"family": "Zoanthidae"},
+
+    {"unknown": ["Sandhalolita", "Halomitra"]}
+
+]
