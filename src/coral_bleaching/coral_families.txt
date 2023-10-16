@@ -79,7 +79,7 @@ Pocilliporodae
 Pocillopora sp, Montipora (submasive and encrusting), Fungiid (Fungia,Ctenactis and Sandhalolita, Acropora (maybe grandis), Pectinia, Diploastrea heliopora, Echinopora, Galaxea
 Pocillopora, Fungia, Halomitra, Acropora hyacinthus, Acropora nasuta, Goniastrea, Platygyra, Leptastrea, Porites
 Pocillopordae
-Pocillopordae, Acroporidae, 
+Pocillopordae, Acroporidae
 Pocillopordae, Agaricidae
 Pocilloporidae
 Pocilloporidae, Acroporidae
