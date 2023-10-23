@@ -1,10 +1,21 @@
-import json
 import pandas as pd
+import csv
+import json
+
+data = pd.read_csv("./coral_bleaching.csv")
 
 f = open("classification.json")
 classification = json.load(f)
 
-with open ("coral_bleaching.csv", "r++") as dataset:
-    data = pd.read_csv("./coral_bleaching.csv")
-    column_names = pd.read_csv("coral_bleaching.csv", skiprows=1, encoding='ISO-8859-1')
-    print(column_names)
+print(data["CORAL_FAMILY"])
+families = data["CORAL_FAMILY"].tolist()
+for i in families:
+    if i == None:
+        break
+    for j in classification:
+        if j["family"] == i:
+            print("Correct")
+        elif i in j["family_typos"]:
+            print("Typo")
+        elif i in j["genus"] or i in j["species"] or i in j["species_typos"]:
+            print("Misinformation")
