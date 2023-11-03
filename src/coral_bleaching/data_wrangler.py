@@ -100,6 +100,33 @@ def write_json(filepath, data, encoding="utf-8", ensure_ascii=False, indent=2):
         json.dump(data, file_obj, ensure_ascii=ensure_ascii, indent=indent)
 
 
+def remove_substr(string: str, substrings: tuple) -> str:
+    """TODO"""
+
+    org_len: int = len(string)
+    for substring in substrings:
+        string = string.replace(substring, "")
+        if len(string) != org_len:
+            return string
+    return string
+
+
+def remove_trailing_char(string, char):
+    """TODO"""
+
+    return string[: len(string) - 1] if string[-1] == char else string
+
+
+def build_str(string, lookup):
+    """TODO"""
+
+    if len(string) == 0:
+        string = lookup["family"]
+    else:
+        string += f", {lookup['family']}"
+    return string
+
+
 def main():
     """TODO"""
 
@@ -113,34 +140,37 @@ def main():
     lookups = read_json(filepath)
     # print(lookups[0])
 
+    substrings = ("And ", "And\n", "and ", "and\n")
     coral_family_idx = headers.index("CORAL_FAMILY")
     count = 0
     for i in range(len(reefs)):
         string = reefs[i][coral_family_idx].strip()
         if string:
-            families = string.split(", ")
-            print(families)
+            string = remove_trailing_char(string, ",")
+            string = remove_substr(string, substrings)
+            # Convert first letter of each word to uppercase then split
+            families = string.title().split(", ")
+
+            new_string = ""
+            ###
             for family in families:
-                new_string = ""
                 for lookup in lookups:
-                    if family in lookup["family_typos"]:
-                        if len(new_string) == 0:
-                            new_string = lookup["family"]
-                        else:
-                            new_string += f", {lookup['family']}"
-                        count += 1
+                    if family == lookup["family"]:
+                        new_string = build_str(new_string, lookup)
+                        break
+                    elif family in lookup["family_typos"]:
+                        print("family typo:", family)
+                        count += 1  # count the number of family names corrected
+                        new_string = build_str(new_string, lookup)
                         break
                     else:
-                        if len(new_string) == 0:
-                            new_string = family
-                        else:
-                            new_string += f", {family}"
-                        break
+                        continue
             reefs[i][coral_family_idx] = new_string
-
+            # print("new_string:", new_string)
 
     print(count)
     write_csv("./cleaned.csv", reefs, headers)
+
 
 if __name__ == "__main__":
     main()
