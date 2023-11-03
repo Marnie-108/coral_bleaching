@@ -2,7 +2,13 @@
     {
         "family": "Acroporidae",
         "family_typos": [
-            "Acropiridae"
+            "Acropiridae",
+            "Acropora",
+            "Montipora",
+            "Acropora hyacinthus",
+            "Acropora nasuta",
+            "Acropora palmata",
+            "Acropora grandis"
         ],
         "genus": [
             "Acropora",
@@ -20,11 +26,13 @@
         "family": "Agariciidae",
         "family_typos": [
             "Agariicidae",
-            "Agaricidae"
+            "Agaricidae",
+            "Acropora hyacinthus",
+            "Acropora nasuta",
+            "Acropora palmata",
+            "Agaricia agaricites"
         ],
-        "genus": [
-            "Acropora"
-        ],
+        "genus": [],
         "species": [
             "Acropora hyacinthus",
             "Acropora nasuta",
@@ -51,7 +59,11 @@
     },
     {
         "family": "Diploastreidae",
-        "family_typos": [],
+        "family_typos": [
+            "Diploastrea",
+            "Diploastrea heliopora",
+            "Diploastrea heliopore"
+        ],
         "genus": [
             "Diploastrea"
         ],
@@ -65,7 +77,8 @@
     {
         "family": "Euphyllidae",
         "family_typos": [
-            "Ephyllidae"
+            "Ephyllidae",
+            "Galaxea"
         ],
         "genus": [
             "Galaxea"
@@ -76,7 +89,8 @@
     {
         "family": "Faviidae",
         "family_typos": [
-            "Ephyllidae"
+            "Ephyllidae",
+            "Favia"
         ],
         "genus": [
             "Favia"
@@ -88,7 +102,9 @@
         "family": "Fungiidae",
         "family_typos": [
             "Fungidae",
-            "Fungiid"
+            "Fungiid",
+            "Fungia",
+            "Ctenactis"
         ],
         "genus": [
             "Fungia",
@@ -99,7 +115,9 @@
     },
     {
         "family": "Leptastreidae",
-        "family_typos": [],
+        "family_typos": [
+            "Leptastrea"
+        ],
         "genus": [
             "Leptastrea"
         ],
@@ -115,7 +133,12 @@
     },
     {
         "family": "Merulinidae",
-        "family_typos": [],
+        "family_typos": [
+            "Echinopora",
+            "Goniastrea",
+            "Pectinia",
+            "Platygyra"
+        ],
         "genus": [
             "Echinopora",
             "Goniastrea",
@@ -136,7 +159,9 @@
     },
     {
         "family": "Montastraeidae",
-        "family_typos": [],
+        "family_typos": [
+            "Montastrea"
+        ],
         "genus": [
             "Montastrea"
         ],
@@ -163,7 +188,8 @@
             "Pocillipordae",
             "Pocilliporodae",
             "Pocciloporidae",
-            "Pocillopordae"
+            "Pocillopordae",
+            "Pocillopora"
         ],
         "genus": [
             "Pocillopora"
@@ -174,7 +200,8 @@
     {
         "family": "Poritidae",
         "family_typos": [
-            "Pritidae"
+            "Pritidae",
+            "Porites"
         ],
         "genus": [
             "Porites"
