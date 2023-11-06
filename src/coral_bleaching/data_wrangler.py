@@ -111,13 +111,13 @@ def remove_substr(string: str, substrings: tuple) -> str:
     return string
 
 
-def remove_trailing_char(string, char):
+def remove_trailing_char(string: str, char: str) -> str:
     """TODO"""
 
     return string[: len(string) - 1] if string[-1] == char else string
 
 
-def build_str(string, lookup):
+def build_str(string: str, lookup: list) -> str:
     """TODO"""
 
     if len(string) == 0:
