@@ -5,20 +5,20 @@
             "Acropiridae",
             "Acropora",
             "Montipora",
-            "Acropora hyacinthus",
-            "Acropora nasuta",
-            "Acropora palmata",
-            "Acropora grandis"
+            "Acropora Hyacinthus",
+            "Acropora Nasuta",
+            "Acropora Palmata",
+            "Acropora Grandis"
         ],
         "genus": [
             "Acropora",
             "Montipora"
         ],
         "species": [
-            "Acropora hyacinthus",
-            "Acropora nasuta",
-            "Acropora palmata",
-            "Acropora grandis"
+            "Acropora Hyacinthus",
+            "Acropora Nasuta",
+            "Acropora Palmata",
+            "Acropora Grandis"
         ],
         "species_typos": []
     },
@@ -27,11 +27,11 @@
         "family_typos": [
             "Agariicidae",
             "Agaricidae",
-            "Agaricia agaricites"
+            "Agaricia Agaricites"
         ],
         "genus": [],
         "species": [
-            "Agaricia agaricites"
+            "Agaricia Agaricites"
         ],
         "species_typos": []
     },
@@ -55,17 +55,17 @@
         "family": "Diploastreidae",
         "family_typos": [
             "Diploastrea",
-            "Diploastrea heliopora",
-            "Diploastrea heliopore"
+            "Diploastrea Heliopora",
+            "Diploastrea Heliopore"
         ],
         "genus": [
             "Diploastrea"
         ],
         "species": [
-            "Diploastrea heliopora"
+            "Diploastrea Heliopora"
         ],
         "species_typos": [
-            "Diploastrea heliopore"
+            "Diploastrea Heliopore"
         ]
     },
     {
@@ -98,11 +98,13 @@
             "Fungidae",
             "Fungiid",
             "Fungia",
-            "Ctenactis"
+            "Ctenactis",
+            "Halomitra"
         ],
         "genus": [
             "Fungia",
-            "Ctenactis"
+            "Ctenactis",
+            "Halomitra"
         ],
         "species": [],
         "species_typos": []
