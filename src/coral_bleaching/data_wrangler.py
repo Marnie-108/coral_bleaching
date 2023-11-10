@@ -1,5 +1,6 @@
 import csv
 import json
+import umpyutl as umpy
 
 from pathlib import Path
 
@@ -127,6 +128,49 @@ def build_str(string: str, lookup: list) -> str:
     return string
 
 
+def lookup_family(count: int, families: list, lookups: list, new_string: str) -> tuple[int, str]:
+    """TODO"""
+
+    new_count = 0
+    new_string = ""
+
+    for family in families:
+        string, count = match_family(lookups, family, new_string, count)
+        new_string += string
+        new_count += count
+        # if not val:
+        #     # umpy.write.to_txt("bad_families.txt", [family])
+        #     with open("bad_families.txt", "a") as file_obj:
+        #         file_obj.write(f"{family}\n")
+        # for lookup in lookups:
+        # if family == lookup["family"]:
+        #     print(f"family match: {family}")
+        #     new_string = build_str(new_string, lookup)
+        #     break
+        # elif family in lookup["family_typos"]:
+        #     print(f"family typo: {family}")
+        #     count += 1  # count the number of family names corrected
+        #     new_string = build_str(new_string, lookup)
+        #     break
+        # else:
+        #     continue
+    return new_string, new_count
+
+
+def match_family(lookups: list, family: str, new_string: str, count: int) -> tuple[str, int]:
+    """TODO"""
+    for lookup in lookups:
+        if family == lookup["family"]:
+            print(f"family match: {family}")
+            return build_str(new_string, lookup), count
+        elif family in lookup["family_typos"]:
+            print(f"family typo: {family}")
+            return build_str(new_string, lookup), count + 1
+        else:
+            continue
+    return "", 0  # avoid returning None.
+
+
 def main():
     """TODO"""
 
@@ -144,29 +188,27 @@ def main():
     coral_family_idx = headers.index("CORAL_FAMILY")
     count = 0
     for i in range(len(reefs)):
+        reef_id = reefs[i][0]
+        print(f"\nReef id: {reef_id}")
         string = reefs[i][coral_family_idx].strip()
         if string:
+            # 'Pocillopora Sp', 'Montipora (Submasive Encrusting)', 'Fungiid (Fungia', 'Ctenactis Sandhalolita', 'Acropora (Maybe Grandis)', 'Pectinia', 'Diploastrea Heliopora', 'Echinopora', 'Galaxea'
             string = remove_trailing_char(string, ",")
             string = remove_substr(string, substrings)
             # Convert first letter of each word to uppercase then split
-            families = string.title().split(", ")
+            families = string.split(",")
+            families = [family.strip().title() for family in families]
+            print(f"\nfamilies: {families}")
+
+            # TODO need to move genus values to new genus element etc.
 
             new_string = ""
-            ###
-            for family in families:
-                for lookup in lookups:
-                    if family == lookup["family"]:
-                        new_string = build_str(new_string, lookup)
-                        break
-                    elif family in lookup["family_typos"]:
-                        print("family typo:", family)
-                        count += 1  # count the number of family names corrected
-                        new_string = build_str(new_string, lookup)
-                        break
-                    else:
-                        continue
+            val = lookup_family(count, families, lookups, new_string)
+            if isinstance(val, tuple):
+                new_string, count = val
+            else:
+                new_string = ""
             reefs[i][coral_family_idx] = new_string
-            # print("new_string:", new_string)
 
     print(count)
     write_csv("./cleaned.csv", reefs, headers)
