@@ -102,7 +102,15 @@ def write_json(filepath, data, encoding="utf-8", ensure_ascii=False, indent=2):
 
 
 def remove_substr(string: str, substrings: tuple) -> str:
-    """TODO"""
+    """Removes words which are not relative to the data or get in the way of the analysis of data and returns the data (string) without those substrings.
+
+    Parameters:
+        string (str): the data we may need to remove a substring from
+        substring (list): a list of words which need to be removed from the data
+
+    Returns:
+        str: the string with any substrings removed
+    """
 
     org_len: int = len(string)
     for substring in substrings:
@@ -113,13 +121,29 @@ def remove_substr(string: str, substrings: tuple) -> str:
 
 
 def remove_trailing_char(string: str, char: str) -> str:
-    """TODO"""
+    """Removes trailing characters from the end of a string and returns that string.
+
+    Parameters:
+        string (str): the data we may need to remove a trailing character from
+        char (str): the character we want to remove from the end of the string
+
+    Returns:
+        str: the data (string) with the trailing character removed
+    """
 
     return string[: len(string) - 1] if string[-1] == char else string
 
 
 def build_str(string: str, lookup: list) -> str:
-    """TODO"""
+    """Builds a string of corrected families for a field of the CORAL_FAMILY column. If the field only contains a single family, the correct family name is assigned to string. If there are multiple families, the correct family names are appended to the string. This string of correct families is returned.
+
+    Parameters:
+        string (str): string of already corrected families from a single field (will be empty if none have been corrected yet)
+        lookup (list): single dictionary within lookups which is a json with a dictionary for each family
+
+    Returns:
+        str: correct families from one field in the CORAL_FAMILY column
+    """
 
     if len(string) == 0:
         string = lookup["family"]
@@ -172,7 +196,15 @@ def match_family(lookups: list, family: str, new_string: str, count: int) -> tup
 
 
 def main():
-    """TODO"""
+    """
+    Program entry point. Orchestrates workflow.
+
+    Parameters:
+        None
+
+    Returns:
+        None
+    """
 
     # filepath = Path(__file__).parent.resolve().joinpath("coral_bleaching.csv")
     filepath = Path("coral_bleaching.csv").resolve()
