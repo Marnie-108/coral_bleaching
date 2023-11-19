@@ -5,6 +5,54 @@ import umpyutl as umpy
 from pathlib import Path
 
 
+def build_str(string: str, lookup: list) -> str:
+    """Builds a string of corrected families for a field of the CORAL_FAMILY column. If the field only contains a single family, the correct family name is assigned to string. If there are multiple families, the correct family names are appended to the string. This string of correct families is returned.
+
+    Parameters:
+        string (str): string of already corrected families from a single field (will be empty if none have been corrected yet)
+        lookup (list): single dictionary within lookups which is a json with a dictionary for each family
+
+    Returns:
+        str: correct families from one field in the CORAL_FAMILY column
+    """
+
+    if len(string) == 0:
+        string = lookup["family"]
+    else:
+        string += f", {lookup['family']}"
+    return string
+
+
+def clean_data(string: str, substrings: tuple):
+    """TODO"""
+
+    string = remove_substr(remove_trailing_char(string, ","), substrings)
+    return [element.strip().title() for element in string.split(",")]
+
+
+def lookup_family(count: int, families: list, lookups: list, new_string: str) -> tuple[int, str]:
+    """TODO"""
+
+    new_count = count  # reset
+    for family in families:
+        new_string, new_count = match_family(lookups, family, new_string, new_count)
+    return new_string, new_count
+
+
+def match_family(lookups: list, family: str, new_string: str, count: int) -> tuple[str, int]:
+    """TODO"""
+    for lookup in lookups:
+        if family == lookup["family"]:
+            print(f"family match: {family}")
+            return build_str(new_string, lookup), count
+        elif family in lookup["family_typos"]:
+            print(f"family typo: {family}")
+            return build_str(new_string, lookup), count + 1
+        else:
+            continue
+    return "", count  # avoid returning None.
+
+
 def read_csv(filepath, encoding="utf-8", newline="", delimiter=","):
     """
     Reads a CSV file, parsing row values per the provided delimiter. Returns a list of lists,
@@ -49,6 +97,39 @@ def read_json(filepath, encoding="utf-8"):
 
     with open(filepath, "r", encoding=encoding) as file_obj:
         return json.load(file_obj)
+
+
+def remove_substr(string: str, substrings: tuple) -> str:
+    """Removes words which are not relative to the data or get in the way of the analysis of data and returns the data (string) without those substrings.
+
+    Parameters:
+        string (str): the data we may need to remove a substring from
+        substring (list): a list of words which need to be removed from the data
+
+    Returns:
+        str: the string with any substrings removed
+    """
+
+    org_len: int = len(string)
+    for substring in substrings:
+        string = string.replace(substring, "")
+        if len(string) != org_len:
+            return string
+    return string
+
+
+def remove_trailing_char(string: str, char: str) -> str:
+    """Removes trailing characters from the end of a string and returns that string.
+
+    Parameters:
+        string (str): the data we may need to remove a trailing character from
+        char (str): the character we want to remove from the end of the string
+
+    Returns:
+        str: the data (string) with the trailing character removed
+    """
+
+    return string[: len(string) - 1] if string[-1] == char else string
 
 
 def write_csv(filepath, data, headers=None, encoding="utf-8", newline=""):
@@ -101,100 +182,6 @@ def write_json(filepath, data, encoding="utf-8", ensure_ascii=False, indent=2):
         json.dump(data, file_obj, ensure_ascii=ensure_ascii, indent=indent)
 
 
-def remove_substr(string: str, substrings: tuple) -> str:
-    """Removes words which are not relative to the data or get in the way of the analysis of data and returns the data (string) without those substrings.
-
-    Parameters:
-        string (str): the data we may need to remove a substring from
-        substring (list): a list of words which need to be removed from the data
-
-    Returns:
-        str: the string with any substrings removed
-    """
-
-    org_len: int = len(string)
-    for substring in substrings:
-        string = string.replace(substring, "")
-        if len(string) != org_len:
-            return string
-    return string
-
-
-def remove_trailing_char(string: str, char: str) -> str:
-    """Removes trailing characters from the end of a string and returns that string.
-
-    Parameters:
-        string (str): the data we may need to remove a trailing character from
-        char (str): the character we want to remove from the end of the string
-
-    Returns:
-        str: the data (string) with the trailing character removed
-    """
-
-    return string[: len(string) - 1] if string[-1] == char else string
-
-
-def build_str(string: str, lookup: list) -> str:
-    """Builds a string of corrected families for a field of the CORAL_FAMILY column. If the field only contains a single family, the correct family name is assigned to string. If there are multiple families, the correct family names are appended to the string. This string of correct families is returned.
-
-    Parameters:
-        string (str): string of already corrected families from a single field (will be empty if none have been corrected yet)
-        lookup (list): single dictionary within lookups which is a json with a dictionary for each family
-
-    Returns:
-        str: correct families from one field in the CORAL_FAMILY column
-    """
-
-    if len(string) == 0:
-        string = lookup["family"]
-    else:
-        string += f", {lookup['family']}"
-    return string
-
-
-def lookup_family(count: int, families: list, lookups: list, new_string: str) -> tuple[int, str]:
-    """TODO"""
-
-    new_count = 0
-    new_string = ""
-
-    for family in families:
-        string, count = match_family(lookups, family, new_string, count)
-        new_string += string
-        new_count += count
-        # if not val:
-        #     # umpy.write.to_txt("bad_families.txt", [family])
-        #     with open("bad_families.txt", "a") as file_obj:
-        #         file_obj.write(f"{family}\n")
-        # for lookup in lookups:
-        # if family == lookup["family"]:
-        #     print(f"family match: {family}")
-        #     new_string = build_str(new_string, lookup)
-        #     break
-        # elif family in lookup["family_typos"]:
-        #     print(f"family typo: {family}")
-        #     count += 1  # count the number of family names corrected
-        #     new_string = build_str(new_string, lookup)
-        #     break
-        # else:
-        #     continue
-    return new_string, new_count
-
-
-def match_family(lookups: list, family: str, new_string: str, count: int) -> tuple[str, int]:
-    """TODO"""
-    for lookup in lookups:
-        if family == lookup["family"]:
-            print(f"family match: {family}")
-            return build_str(new_string, lookup), count
-        elif family in lookup["family_typos"]:
-            print(f"family typo: {family}")
-            return build_str(new_string, lookup), count + 1
-        else:
-            continue
-    return "", 0  # avoid returning None.
-
-
 def main():
     """
     Program entry point. Orchestrates workflow.
@@ -225,21 +212,14 @@ def main():
         string = reefs[i][coral_family_idx].strip()
         if string:
             # 'Pocillopora Sp', 'Montipora (Submasive Encrusting)', 'Fungiid (Fungia', 'Ctenactis Sandhalolita', 'Acropora (Maybe Grandis)', 'Pectinia', 'Diploastrea Heliopora', 'Echinopora', 'Galaxea'
-            string = remove_trailing_char(string, ",")
-            string = remove_substr(string, substrings)
-            # Convert first letter of each word to uppercase then split
-            families = string.split(",")
-            families = [family.strip().title() for family in families]
+            families = clean_data(string, substrings)
             print(f"\nfamilies: {families}")
 
             # TODO need to move genus values to new genus element etc.
 
             new_string = ""
             val = lookup_family(count, families, lookups, new_string)
-            if isinstance(val, tuple):
-                new_string, count = val
-            else:
-                new_string = ""
+            new_string, count = val
             reefs[i][coral_family_idx] = new_string
 
     print(count)
