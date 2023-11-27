@@ -30,6 +30,29 @@ def clean_data(string: str, substrings: tuple):
     return [element.strip().title() for element in string.split(",")]
 
 
+def find_genus(string: str, sp_strings: list, genus: list) -> list:
+    """TODO"""
+
+    string = (
+        string.title().replace("And", ",").replace(";", ",").replace("\n", ",").replace("\t", ",")
+    )
+    string = [element.strip().title() for element in string.split(",")]
+    print(f"\nSplit string: {string}")
+    for element in string:
+        if element:
+            if " " not in element and element not in genus and element[1] != "." or "Species" in element:
+                genus.append(element)
+            for sp_string in sp_strings:
+                # print(f"sp string: {sp_string}")
+                if element[:-len(sp_string)] == sp_string:
+                    element = remove_trailing_char(element.replace(sp_string, ""), ".").strip()
+                    if element not in genus:
+                        genus.append(element)
+                    # print(f"\n{genus}")
+                    break
+    return genus
+
+
 def lookup_family(count: int, families: list, lookups: list, new_string: str) -> tuple[int, str]:
     """TODO"""
 
@@ -204,16 +227,18 @@ def main():
     # print(lookups[0])
 
     substrings = ("And ", "And\n", "and ", "and\n")
+    genus = []
     coral_family_idx = headers.index("CORAL_FAMILY")
+    coral_species_idx = headers.index("CORAL_SPECIES")
     count = 0
     for i in range(len(reefs)):
         reef_id = reefs[i][0]
-        print(f"\nReef id: {reef_id}")
+        # print(f"\nReef id: {reef_id}")
         string = reefs[i][coral_family_idx].strip()
         if string:
             # 'Pocillopora Sp', 'Montipora (Submasive Encrusting)', 'Fungiid (Fungia', 'Ctenactis Sandhalolita', 'Acropora (Maybe Grandis)', 'Pectinia', 'Diploastrea Heliopora', 'Echinopora', 'Galaxea'
             families = clean_data(string, substrings)
-            print(f"\nfamilies: {families}")
+            # print(f"\nfamilies: {families}")
 
             # TODO need to move genus values to new genus element etc.
 
@@ -221,6 +246,26 @@ def main():
             val = lookup_family(count, families, lookups, new_string)
             new_string, count = val
             reefs[i][coral_family_idx] = new_string
+
+        sp_strings = [
+            "Spp.",
+            " Spp.,",
+            "Spp. ",
+            "Spp",
+            " Spp,",
+            "Spp ",
+            "Sp.",
+            " Sp.,",
+            "Sp. ",
+            "Sp",
+            " Sp,",
+            "Sp ",
+        ]
+        string = reefs[i][coral_species_idx].strip()
+        if string:
+            genus = find_genus(string, sp_strings, genus)
+            print(f"\nString: {string}")
+    print(f"Genus: {sorted(genus)}")
 
     print(count)
     write_csv("./cleaned.csv", reefs, headers)
