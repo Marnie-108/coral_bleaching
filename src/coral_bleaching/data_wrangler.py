@@ -4,8 +4,7 @@ import umpyutl as umpy
 
 from pathlib import Path
 
-
-def build_str(string: str, lookup: list) -> str:
+def build_str(string: str, lookup: list, group: str) -> str:
     """Builds a string of corrected families for a field of the CORAL_FAMILY column. If the field only contains a single family, the correct family name is assigned to string. If there are multiple families, the correct family names are appended to the string. This string of correct families is returned.
 
     Parameters:
@@ -17,11 +16,10 @@ def build_str(string: str, lookup: list) -> str:
     """
 
     if len(string) == 0:
-        string = lookup["family"]
+        string = lookup[group]
     else:
-        string += f", {lookup['family']}"
+        string += f", {lookup[group]}"
     return string
-
 
 def clean_data(string: str, substrings: tuple):
     """TODO"""
@@ -29,8 +27,15 @@ def clean_data(string: str, substrings: tuple):
     string = remove_substr(remove_trailing_char(string, ","), substrings)
     return [element.strip().title() for element in string.split(",")]
 
+def create_genus(lookups: list, species, new_string: str, genus_count: int, group : str):
+    for genus in species:
+        for lookup in lookups:
+            if f"{lookup['genus']} " in genus:
+                genus_count += 1
+                new_string, genus_count = build_str(new_string, lookup, group), genus_count
+    return new_string, genus_count
 
-def find_genus(string: str, sp_strings: list, genus: list) -> list:
+def find_genus(string: str, sp_strings: list, genus: list) -> list:    #maybe belongs in jupyter notebook - single use
     """TODO"""
 
     string = (
@@ -52,29 +57,26 @@ def find_genus(string: str, sp_strings: list, genus: list) -> list:
                     break
     return genus
 
-
-def lookup_family(count: int, families: list, lookups: list, new_string: str) -> tuple[int, str]:
+def lookup_taxon(count: int, taxa: list, lookups: list, new_string: str, group: str) -> tuple[int, str]:
     """TODO"""
 
     new_count = count  # reset
-    for family in families:
-        new_string, new_count = match_family(lookups, family, new_string, new_count)
+    for taxon in taxa:
+        new_string, new_count = match_taxon(lookups, taxon, new_string, new_count, group)
     return new_string, new_count
 
-
-def match_family(lookups: list, family: str, new_string: str, count: int) -> tuple[str, int]:
+def match_taxon(lookups: list, taxon: str, new_string: str, count: int, group: str) -> tuple[str, int]:
     """TODO"""
     for lookup in lookups:
-        if family == lookup["family"]:
-            print(f"family match: {family}")
-            return build_str(new_string, lookup), count
-        elif family in lookup["family_typos"]:
-            print(f"family typo: {family}")
-            return build_str(new_string, lookup), count + 1
+        if taxon == lookup[group]:
+            print(f"{group} match: {taxon}")
+            return build_str(new_string, lookup, group), count
+        elif taxon in lookup[f"{group}_typos"]:
+            print(f"{group} typo: {taxon}")
+            return build_str(new_string, lookup, group), count + 1
         else:
             continue
     return "", count  # avoid returning None.
-
 
 def read_csv(filepath, encoding="utf-8", newline="", delimiter=","):
     """
@@ -105,7 +107,6 @@ def read_csv(filepath, encoding="utf-8", newline="", delimiter=","):
             data.append(row)
         return data
 
-
 def read_json(filepath, encoding="utf-8"):
     """Reads a JSON document, decodes the file content, and returns a list or dictionary if
     provided with a valid filepath.
@@ -120,7 +121,6 @@ def read_json(filepath, encoding="utf-8"):
 
     with open(filepath, "r", encoding=encoding) as file_obj:
         return json.load(file_obj)
-
 
 def remove_substr(string: str, substrings: tuple) -> str:
     """Removes words which are not relative to the data or get in the way of the analysis of data and returns the data (string) without those substrings.
@@ -140,7 +140,6 @@ def remove_substr(string: str, substrings: tuple) -> str:
             return string
     return string
 
-
 def remove_trailing_char(string: str, char: str) -> str:
     """Removes trailing characters from the end of a string and returns that string.
 
@@ -153,7 +152,6 @@ def remove_trailing_char(string: str, char: str) -> str:
     """
 
     return string[: len(string) - 1] if string[-1] == char else string
-
 
 def write_csv(filepath, data, headers=None, encoding="utf-8", newline=""):
     """
@@ -185,7 +183,6 @@ def write_csv(filepath, data, headers=None, encoding="utf-8", newline=""):
         else:
             writer.writerows(data)
 
-
 def write_json(filepath, data, encoding="utf-8", ensure_ascii=False, indent=2):
     """Serializes object as JSON. Writes content to the provided filepath.
 
@@ -203,7 +200,6 @@ def write_json(filepath, data, encoding="utf-8", ensure_ascii=False, indent=2):
 
     with open(filepath, "w", encoding=encoding) as file_obj:
         json.dump(data, file_obj, ensure_ascii=ensure_ascii, indent=indent)
-
 
 def main():
     """
@@ -231,6 +227,7 @@ def main():
     coral_family_idx = headers.index("CORAL_FAMILY")
     coral_species_idx = headers.index("CORAL_SPECIES")
     count = 0
+    genus_count = 0
     for i in range(len(reefs)):
         reef_id = reefs[i][0]
         # print(f"\nReef id: {reef_id}")
@@ -238,12 +235,13 @@ def main():
         if string:
             # 'Pocillopora Sp', 'Montipora (Submasive Encrusting)', 'Fungiid (Fungia', 'Ctenactis Sandhalolita', 'Acropora (Maybe Grandis)', 'Pectinia', 'Diploastrea Heliopora', 'Echinopora', 'Galaxea'
             families = clean_data(string, substrings)
+            species = clean_data(string, substrings)
             # print(f"\nfamilies: {families}")
 
             # TODO need to move genus values to new genus element etc.
 
             new_string = ""
-            val = lookup_family(count, families, lookups, new_string)
+            val = lookup_taxon(count, families, lookups, new_string, "family")
             new_string, count = val
             reefs[i][coral_family_idx] = new_string
 
@@ -269,7 +267,6 @@ def main():
 
     print(count)
     write_csv("./cleaned.csv", reefs, headers)
-
 
 if __name__ == "__main__":
     main()
