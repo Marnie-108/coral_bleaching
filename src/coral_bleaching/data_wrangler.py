@@ -27,7 +27,7 @@ def clean_data(string: str, substrings: tuple):
     string = remove_substr(remove_trailing_char(string, ","), substrings)
     return [element.strip().title() for element in string.split(",")]
 
-def create_genus(lookups: list, species, new_string: str, genus_count: int, group : str):
+def find_genus(lookups: list, species, new_string: str, genus_count: int, group: str):
     for genus in species:
         for lookup in lookups:
             if f"{lookup['genus']} " in genus:
@@ -35,29 +35,9 @@ def create_genus(lookups: list, species, new_string: str, genus_count: int, grou
                 new_string, genus_count = build_str(new_string, lookup, group), genus_count
     return new_string, genus_count
 
-def find_genus(string: str, sp_strings: list, genus: list) -> list:    #maybe belongs in jupyter notebook - single use
-    """TODO"""
-
-    string = (
-        string.title().replace("And", ",").replace(";", ",").replace("\n", ",").replace("\t", ",")
-    )
-    string = [element.strip().title() for element in string.split(",")]
-    print(f"\nSplit string: {string}")
-    for element in string:
-        if element:
-            if " " not in element and element not in genus and element[1] != "." or "Species" in element:
-                genus.append(element)
-            for sp_string in sp_strings:
-                # print(f"sp string: {sp_string}")
-                if element[:-len(sp_string)] == sp_string:
-                    element = remove_trailing_char(element.replace(sp_string, ""), ".").strip()
-                    if element not in genus:
-                        genus.append(element)
-                    # print(f"\n{genus}")
-                    break
-    return genus
-
-def lookup_taxon(count: int, taxa: list, lookups: list, new_string: str, group: str) -> tuple[int, str]:
+def lookup_taxon(
+    count: int, taxa: list, lookups: list, new_string: str, group: str
+) -> tuple[int, str]:
     """TODO"""
 
     new_count = count  # reset
@@ -65,7 +45,9 @@ def lookup_taxon(count: int, taxa: list, lookups: list, new_string: str, group: 
         new_string, new_count = match_taxon(lookups, taxon, new_string, new_count, group)
     return new_string, new_count
 
-def match_taxon(lookups: list, taxon: str, new_string: str, count: int, group: str) -> tuple[str, int]:
+def match_taxon(
+    lookups: list, taxon: str, new_string: str, count: int, group: str
+) -> tuple[str, int]:
     """TODO"""
     for lookup in lookups:
         if taxon == lookup[group]:
@@ -77,6 +59,35 @@ def match_taxon(lookups: list, taxon: str, new_string: str, count: int, group: s
         else:
             continue
     return "", count  # avoid returning None.
+
+def possible_genera(
+    string: str, sp_strings: list, genus: list
+) -> list:  # maybe belongs in jupyter notebook - single use
+    """TODO"""
+
+    string = (
+        string.title().replace("And", ",").replace(";", ",").replace("\n", ",").replace("\t", ",")
+    )
+    string = [element.strip().title() for element in string.split(",")]
+    print(f"\nSplit string: {string}")
+    for element in string:
+        if element:
+            if (
+                " " not in element
+                and element not in genus
+                and element[1] != "."
+                or "Species" in element
+            ):
+                genus.append(element)
+            for sp_string in sp_strings:
+                # print(f"sp string: {sp_string}")
+                if element[: -len(sp_string)] == sp_string:
+                    element = remove_trailing_char(element.replace(sp_string, ""), ".").strip()
+                    if element not in genus:
+                        genus.append(element)
+                    # print(f"\n{genus}")
+                    break
+    return genus
 
 def read_csv(filepath, encoding="utf-8", newline="", delimiter=","):
     """
@@ -228,6 +239,7 @@ def main():
     coral_species_idx = headers.index("CORAL_SPECIES")
     count = 0
     genus_count = 0
+
     for i in range(len(reefs)):
         reef_id = reefs[i][0]
         # print(f"\nReef id: {reef_id}")
@@ -245,6 +257,12 @@ def main():
             new_string, count = val
             reefs[i][coral_family_idx] = new_string
 
+            genus_string = ""
+            genus_val = find_genus(lookups, species, genus_string, genus_count, "species")
+            genus_string, genus_count = genus_val
+            reefs.insert(coral_species_idx, new_string)
+            reefs[coral_species_idx + 1] = new_string
+
         sp_strings = [
             "Spp.",
             " Spp.,",
@@ -261,12 +279,16 @@ def main():
         ]
         string = reefs[i][coral_species_idx].strip()
         if string:
-            genus = find_genus(string, sp_strings, genus)
+            genus = possible_genera(string, sp_strings, genus)
             print(f"\nString: {string}")
     print(f"Genus: {sorted(genus)}")
 
     print(count)
+    headers.insert(coral_species_idx, "CORAL_GENUS")
+    coral_species_idx += 1
     write_csv("./cleaned.csv", reefs, headers)
 
 if __name__ == "__main__":
     main()
+
+
