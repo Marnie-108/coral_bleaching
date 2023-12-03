@@ -4,6 +4,7 @@ import umpyutl as umpy
 
 from pathlib import Path
 
+
 def build_str(string: str, lookup: list, group: str) -> str:
     """Builds a string of corrected families for a field of the CORAL_FAMILY column. If the field only contains a single family, the correct family name is assigned to string. If there are multiple families, the correct family names are appended to the string. This string of correct families is returned.
 
@@ -21,11 +22,13 @@ def build_str(string: str, lookup: list, group: str) -> str:
         string += f", {lookup[group]}"
     return string
 
+
 def clean_data(string: str, substrings: tuple):
     """TODO"""
 
     string = remove_substr(remove_trailing_char(string, ","), substrings)
     return [element.strip().title() for element in string.split(",")]
+
 
 def find_genus(lookups: list, species, new_string: str, genus_count: int, group: str):
     for genus in species:
@@ -34,6 +37,7 @@ def find_genus(lookups: list, species, new_string: str, genus_count: int, group:
                 genus_count += 1
                 new_string, genus_count = build_str(new_string, lookup, group), genus_count
     return new_string, genus_count
+
 
 def lookup_taxon(
     count: int, taxa: list, lookups: list, new_string: str, group: str
@@ -44,6 +48,7 @@ def lookup_taxon(
     for taxon in taxa:
         new_string, new_count = match_taxon(lookups, taxon, new_string, new_count, group)
     return new_string, new_count
+
 
 def match_taxon(
     lookups: list, taxon: str, new_string: str, count: int, group: str
@@ -59,6 +64,7 @@ def match_taxon(
         else:
             continue
     return "", count  # avoid returning None.
+
 
 def possible_genera(
     string: str, sp_strings: list, genus: list
@@ -89,6 +95,7 @@ def possible_genera(
                     break
     return genus
 
+
 def read_csv(filepath, encoding="utf-8", newline="", delimiter=","):
     """
     Reads a CSV file, parsing row values per the provided delimiter. Returns a list of lists,
@@ -118,6 +125,7 @@ def read_csv(filepath, encoding="utf-8", newline="", delimiter=","):
             data.append(row)
         return data
 
+
 def read_json(filepath, encoding="utf-8"):
     """Reads a JSON document, decodes the file content, and returns a list or dictionary if
     provided with a valid filepath.
@@ -132,6 +140,7 @@ def read_json(filepath, encoding="utf-8"):
 
     with open(filepath, "r", encoding=encoding) as file_obj:
         return json.load(file_obj)
+
 
 def remove_substr(string: str, substrings: tuple) -> str:
     """Removes words which are not relative to the data or get in the way of the analysis of data and returns the data (string) without those substrings.
@@ -151,6 +160,7 @@ def remove_substr(string: str, substrings: tuple) -> str:
             return string
     return string
 
+
 def remove_trailing_char(string: str, char: str) -> str:
     """Removes trailing characters from the end of a string and returns that string.
 
@@ -163,6 +173,7 @@ def remove_trailing_char(string: str, char: str) -> str:
     """
 
     return string[: len(string) - 1] if string[-1] == char else string
+
 
 def write_csv(filepath, data, headers=None, encoding="utf-8", newline=""):
     """
@@ -194,6 +205,7 @@ def write_csv(filepath, data, headers=None, encoding="utf-8", newline=""):
         else:
             writer.writerows(data)
 
+
 def write_json(filepath, data, encoding="utf-8", ensure_ascii=False, indent=2):
     """Serializes object as JSON. Writes content to the provided filepath.
 
@@ -211,6 +223,7 @@ def write_json(filepath, data, encoding="utf-8", ensure_ascii=False, indent=2):
 
     with open(filepath, "w", encoding=encoding) as file_obj:
         json.dump(data, file_obj, ensure_ascii=ensure_ascii, indent=indent)
+
 
 def main():
     """
@@ -288,7 +301,6 @@ def main():
     coral_species_idx += 1
     write_csv("./cleaned.csv", reefs, headers)
 
+
 if __name__ == "__main__":
     main()
-
-
