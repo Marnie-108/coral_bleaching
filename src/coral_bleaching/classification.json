@@ -11,26 +11,40 @@
             "Acropora Grandis",
             "Acroporids"
         ],
-        "genus": [
-            "Acropora",
-            "Montipora",
-            "Alveopora",
-            "Astreopora"
-        ],
-        "genus_typos": [
-            "Acorpora",
-            "Acropra",
-            "Arcopora",
-            "Acropora Staghorn",
-            "Montiproa"
-        ],
-        "species": [
-            "Acropora Hyacinthus",
-            "Acropora Nasuta",
-            "Acropora Palmata",
-            "Acropora Grandis"
-        ],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Acropora",
+                "genus_typos": [
+                    "Acorpora",
+                    "Acropra",
+                    "Arcopora",
+                    "Acropora Staghorn"
+                ],
+                "species": {
+                    "Acropora Hyacinthus": [],
+                    "Acropora Nasuta": [],
+                    "Acropora Palmata": [],
+                    "Acropora Grandis": []
+                }
+            },
+            {
+                "genus": "Montipora",
+                "genus_typos": [
+                    "Montiproa"
+                ],
+                "species": {}
+            },
+            {
+                "genus": "Alveopora",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Astreopora",
+                "genus_typos": [],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Agariciidae",
@@ -39,67 +53,99 @@
             "Agaricidae",
             "Agaricia Agaricites"
         ],
-        "genus": [
-            "Agaricia",
-            "Leptoseris",
-            "Pachyseris",
-            "Pavona"
-        ],
-        "genus_typos": [
-            "Agarica",
-            "Agaricial"
-        ],
-        "species": [
-            "Agaricia Agaricites"
-        ],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Agaricia",
+                "genus_typos": [
+                    "Agarica",
+                    "Agaricial"
+                ],
+                "species": {
+                    "Agaricia Agaricites": []
+                }
+            },
+            {
+                "genus": "Leptoseris",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Pachyseris",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Pavona",
+                "genus_typos": [],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Alcyoniidae",
         "family_typos": [],
-        "genus": [
-            "Lobophytum",
-            "Sarcophyton",
-            "Sinularia"
-        ],
-        "genus_typos": ["Sarcophyon"],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Lobophytum",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Sarcophyton",
+                "genus_typos": [
+                    "Sarcophyon"
+                ],
+                "species": {}
+            },
+            {
+                "genus": "Sinularia",
+                "genus_typos": [],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Briareidae",
         "family_typos": [],
-        "genus": [
-            "Briareum"
-        ],
-        "genus_typos": [
-            "Briarium",
-            "Briaream"
-        ],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Briareum",
+                "genus_typos": [
+                    "Briarium",
+                    "Briaream"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Coscinaraeidae",
         "family_typos": [],
-        "genus": [
-            "Coscinaraea"
-        ],
-        "genus_typos": [
-            "Coscinarea"
-        ],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Coscinaraea",
+                "genus_typos": [
+                    "Coscinarea"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Dendrophylliidae",
         "family_typos": [
             "Dendrophyllidae"
         ],
-        "genus": ["Turbinaria"],
-        "genus_typos": ["Tubinaria", "Turbanaria"],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Turbinaria",
+                "genus_typos": [
+                    "Tubinaria",
+                    "Turbanaria"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Diploastreidae",
@@ -108,15 +154,14 @@
             "Diploastrea Heliopora",
             "Diploastrea Heliopore"
         ],
-        "genus": [
-            "Diploastrea"
-        ],
-        "genus_typos": [],
-        "species": [
-            "Diploastrea Heliopora"
-        ],
-        "species_typos": [
-            "Diploastrea Heliopore"
+        "genera": [
+            {
+                "genus": "Diploastrea",
+                "genus_typos": [],
+                "species": {
+                    "Diploastrea Heliopora": "Diploastrea Heliopore"
+                }
+            }
         ]
     },
     {
@@ -125,14 +170,15 @@
             "Ephyllidae",
             "Galaxea"
         ],
-        "genus": [
-            "Galaxea"
-        ],
-        "genus_typos": [
-            "Galazea"
-        ],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Galaxea",
+                "genus_typos": [
+                    "Galazea"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Faviidae",
@@ -142,16 +188,17 @@
             "Favidae",
             "Faviids"
         ],
-        "genus": [
-            "Favia"
-        ],
-        "genus_typos": [
-            "Favid",
-            "Favidae",
-            "Faviidae"
-        ],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Favia",
+                "genus_typos": [
+                    "Favid",
+                    "Favidae",
+                    "Faviidae"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Fungiidae",
@@ -165,70 +212,107 @@
             "Fungids",
             "Fungiids"
         ],
-        "genus": [
-            "Fungia",
-            "Ctenactis",
-            "Halomitra",
-            "Ctenactis",
-            "Cycloseris",
-            "Diaseris",
-            "Herpolitha",
-            "Sandalolitha"
-        ],
-        "genus_typos": [
-            "Fungi",
-            "Herpolita",
-            "Sandhalolita"
-        ],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Fungia",
+                "genus_typos": [
+                    "Fungi"
+                ],
+                "species": {}
+            },
+            {
+                "genus": "Ctenactis",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Halomitra",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Cycloseris",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Diaseris",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Herpolitha",
+                "genus_typos": [
+                    "Herpolita"
+                ],
+                "species": {}
+            },
+            {
+                "genus": "Sandalolitha",
+                "genus_typos": [
+                    "Sandhalolita"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Gorgoniidae",
         "family_typos": [
             "Gorgonians"
         ],
-        "genus": [],
-        "genus_typos": [],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {}
+        ]
     },
     {
         "family": "Leptastreidae",
         "family_typos": [
             "Leptastrea"
         ],
-        "genus": [
-            "Leptastrea",
-            "Leptastrea"
-        ],
-        "genus_typos": [
-            "Lepastrea"
-        ],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Leptastrea",
+                "genus_typos": [
+                    "Lepastrea"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Lobophylliidae",
         "family_typos": [],
-        "genus": [
-            "Acanthastrea",
-            "Echinophyllia",
-            "Lobophyllia"
-        ],
-        "genus_typos": ["Symphyllia"],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Acanthastrea",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Echinophyllia",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Lobophyllia",
+                "genus_typos": [
+                    "Symphyllia"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Meandrinidae",
         "family_typos": [],
-        "genus": [
-            "Meandrina"
-        ],
-        "genus_typos": [],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Meandrina",
+                "genus_typos": [],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Merulinidae",
@@ -239,22 +323,54 @@
             "Platygyra",
             "Favites"
         ],
-        "genus": [
-            "Echinopora",
-            "Goniastrea",
-            "Pectinia",
-            "Platygyra",
-            "Caulastraea",
-            "Cyphastrea",
-            "Hydnophora",
-            "Leptoria"
-        ],
-        "genus_typos": [
-            "Echinoporids",
-            "Leptorina"
-        ],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Echinopora",
+                "genus_typos": [
+                    "Echinoporids"
+                ],
+                "species": {}
+            },
+            {
+                "genus": "Goniastrea",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Pectinia",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Platygyra",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Caulastraea",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Cyphastrea",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Hydnophora",
+                "genus_typos": [
+                    "Sandhalolita"
+                ],
+                "species": {}
+            },
+            {
+                "genus": "Leptoria",
+                "genus_typos": [
+                    "Leptorina"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Milleporidae",
@@ -262,59 +378,68 @@
             "Milliporidae",
             "Milleporides"
         ],
-        "genus": [
-            "Millepora"
-        ],
-        "genus_typos": [
-            "Millapora",
-            "Millipora"
-        ],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Millepora",
+                "genus_typos": [
+                    "Millapora",
+                    "Millipora"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Montastraeidae",
         "family_typos": [
             "Montastrea"
         ],
-        "genus": [
-            "Montastraea"
-        ],
-        "genus_typos": [
-            "Montastrea",
-            "Montrastea"
-        ],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Montastraea",
+                "genus_typos": [
+                    "Montastrea",
+                    "Montrastea"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Mussidae",
         "family_typos": [
             "Mussiids"
         ],
-        "genus": [
-            "Colpophyllia",
-            "Diploria"
-        ],
-        "genus_typos": [],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Colpophyllia",
+                "genus_typos": [],
+                "species": {}
+            },
+            {
+                "genus": "Diploria",
+                "genus_typos": [],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Oculinidae",
         "family_typos": [],
-        "genus": [],
-        "genus_typos": [],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {}
+        ]
     },
     {
         "family": "Petrosiidae",
         "family_typos": [],
-        "genus": ["Xestospongia"],
-        "genus_typos": [],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Xestospongia",
+                "genus_typos": [],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Pocilloporidae",
@@ -327,21 +452,32 @@
             "Pocilloporid",
             "Pocilloporids"
         ],
-        "genus": [
-            "Pocillopora",
-            "Seriatopora",
-            "Stylophora"
-        ],
-        "genus_typos": [
-            "Pocillipora",
-            "Pocillopra",
-            "Poscillopora",
-            "Seriatiopora",
-            "Seritopora",
-            "Stylopora"
-        ],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Pocillopora",
+                "genus_typos": [
+                    "Pocillipora",
+                    "Pocillopra",
+                    "Poscillopora"
+                ],
+                "species": {}
+            },
+            {
+                "genus": "Seriatopora",
+                "genus_typos": [
+                    "Seriatiopora",
+                    "Seritopora"
+                ],
+                "species": {}
+            },
+            {
+                "genus": "Stylophora",
+                "genus_typos": [
+                    "Stylopora"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Poritidae",
@@ -349,25 +485,34 @@
             "Pritidae",
             "Porites"
         ],
-        "genus": [
-            "Porites",
-            "Goniopora"
-        ],
-        "genus_typos": [
-            "Gonopora",
-            "Porities",
-            "Porties"
-        ],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Porites",
+                "genus_typos": [
+                    "Porities",
+                    "Porties"
+                ],
+                "species": {}
+            },
+            {
+                "genus": "Goniopora",
+                "genus_typos": [
+                    "Goniopora"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Psammocoridae",
         "family_typos": [],
-        "genus": ["Psammocora"],
-        "genus_typos": [],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Psammocora",
+                "genus_typos": [],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Siderastreidae",
@@ -376,27 +521,32 @@
             "Siderastridae",
             "Siderastriedae"
         ],
-        "genus": ["Siderastrea"],
-        "genus_typos": ["Sideastrea"],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Siderastrea",
+                "genus_typos": [
+                    "Sideastrea"
+                ],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Sphenopidae",
         "family_typos": [],
-        "genus": [
-            "Palythoa"
-        ],
-        "genus_typos": [],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {
+                "genus": "Palythoa",
+                "genus_typos": [],
+                "species": {}
+            }
+        ]
     },
     {
         "family": "Zoanthidae",
         "family_typos": [],
-        "genus": [],
-        "genus_typos": [],
-        "species": [],
-        "species_typos": []
+        "genera": [
+            {}
+        ]
     }
 ]
