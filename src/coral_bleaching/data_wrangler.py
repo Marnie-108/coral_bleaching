@@ -33,7 +33,9 @@ def clean_data(string: str, substrings: tuple):
 def find_genus(lookups: list, species, new_string: str, genus_count: int, group: str):
     for genus in species:
         for lookup in lookups:
-            for genus in lookups['genera']:
+            genera = lookups["genera"]
+            for i in range(len(genera)):
+                genus = genera[i]
                 if f"{lookup['genera']['genus']} " in genus:
                     genus_count += 1
                     new_string, genus_count = build_str(new_string, lookup, group), genus_count
