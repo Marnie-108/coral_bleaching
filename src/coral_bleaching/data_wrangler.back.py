@@ -5,7 +5,7 @@ import umpyutl as umpy
 from pathlib import Path
 
 
-def build_str(string: str, lookup: list, group: str) -> str:
+def build_str(string: str, lookup: list) -> str:
     """Builds a string of corrected families for a field of the CORAL_FAMILY column. If the field only contains a single family, the correct family name is assigned to string. If there are multiple families, the correct family names are appended to the string. This string of correct families is returned.
 
     Parameters:
@@ -17,9 +17,9 @@ def build_str(string: str, lookup: list, group: str) -> str:
     """
 
     if len(string) == 0:
-        string = lookup[group]
+        string = lookup["family_name"]
     else:
-        string += f", {lookup[group]}"
+        string += f", {lookup['family_name']}"
     return string
 
 
@@ -30,78 +30,27 @@ def clean_data(string: str, substrings: tuple):
     return [element.strip().title() for element in string.split(",")]
 
 
-def find_genus(lookups: list, species, new_string: str, genus_count: int, group: str):
-    for genus in species:
-        for lookup in lookups:
-            # lookup = single family
-            for genus in lookup["genera"]:
-                genus_name = genus["genus"]
-                genus_typos = genus["genus_typos"]
-
-
-
-                for i in len(lookup[2]):
-                    if f"{lookup[2][i]} " in genus:
-                        genus_count += 1
-                        new_string, genus_count = build_str(new_string, lookup, group), genus_count
-    return new_string, genus_count
-
-
-def lookup_taxon(
-    count: int, taxa: list, lookups: list, new_string: str, group: str
-) -> tuple[int, str]:
+def lookup_family(count: int, families: list, lookups: list, new_string: str) -> tuple[int, str]:
     """TODO"""
 
     new_count = count  # reset
-    for taxon in taxa:
-        new_string, new_count = match_taxon(lookups, taxon, new_string, new_count, group)
+    for family in families:
+        new_string, new_count = match_family(lookups, family, new_string, new_count)
     return new_string, new_count
 
 
-def match_taxon(
-    lookups: list, taxon: str, new_string: str, count: int, group: str
-) -> tuple[str, int]:
+def match_family(lookups: list, family: str, new_string: str, count: int) -> tuple[str, int]:
     """TODO"""
     for lookup in lookups:
-        if taxon == lookup[group]:
-            print(f"{group} match: {taxon}")
-            return build_str(new_string, lookup, group), count
-        elif taxon in lookup[f"{group}_typos"]:
-            print(f"{group} typo: {taxon}")
-            return build_str(new_string, lookup, group), count + 1
+        if family == lookup["family_name"]:
+            print(f"family match: {family}")
+            return build_str(new_string, lookup), count
+        elif family in lookup["family_typos"]:
+            print(f"family typo: {family}")
+            return build_str(new_string, lookup), count + 1
         else:
             continue
     return "", count  # avoid returning None.
-
-
-def possible_genera(
-    string: str, sp_strings: list, genus: list
-) -> list:  # maybe belongs in jupyter notebook - single use
-    """TODO"""
-
-    string = (
-        string.title().replace("And", ",").replace(";", ",").replace("\n", ",").replace("\t", ",")
-    )
-    string = [element.strip().title() for element in string.split(",")]
-    print(f"\nSplit string: {string}")
-    for element in string:
-        if element:
-            if (
-                " " not in element
-                and element not in genus
-                and element[1] != "."
-                or "Species" in element
-            ):
-                genus.append(element)
-            for sp_string in sp_strings:
-                # print(f"sp string: {sp_string}")
-                if element[: -len(sp_string)] == sp_string:
-                    element = remove_trailing_char(element.replace(sp_string, ""), ".").strip()
-                    if element not in genus:
-                        genus.append(element)
-                    # print(f"\n{genus}")
-                    break
-    return genus
 
 
 def read_csv(filepath, encoding="utf-8", newline="", delimiter=","):
@@ -255,58 +204,25 @@ def main():
     # print(lookups[0])
 
     substrings = ("And ", "And\n", "and ", "and\n")
-    genus = []
     coral_family_idx = headers.index("CORAL_FAMILY")
-    coral_species_idx = headers.index("CORAL_SPECIES")
     count = 0
-    genus_count = 0
-
     for i in range(len(reefs)):
         reef_id = reefs[i][0]
-        # print(f"\nReef id: {reef_id}")
+        print(f"\nReef id: {reef_id}")
         string = reefs[i][coral_family_idx].strip()
         if string:
             # 'Pocillopora Sp', 'Montipora (Submasive Encrusting)', 'Fungiid (Fungia', 'Ctenactis Sandhalolita', 'Acropora (Maybe Grandis)', 'Pectinia', 'Diploastrea Heliopora', 'Echinopora', 'Galaxea'
             families = clean_data(string, substrings)
-            # print(f"\nfamilies: {families}")
+            print(f"\nfamilies: {families}")
 
             # TODO need to move genus values to new genus element etc.
 
             new_string = ""
-            val = lookup_taxon(count, families, lookups, new_string, "family_name")
+            val = lookup_family(count, families, lookups, new_string)
             new_string, count = val
             reefs[i][coral_family_idx] = new_string
 
-        # sp_strings = [
-        #     "Spp.",
-        #     " Spp.,",
-        #     "Spp. ",
-        #     "Spp",
-        #     " Spp,",
-        #     "Spp ",
-        #     "Sp.",
-        #     " Sp.,",
-        #     "Sp. ",
-        #     "Sp",
-        #     " Sp,",
-        #     "Sp ",
-        # ]
-        # string = reefs[i][coral_species_idx].strip()
-        # if string:
-        #     genus = possible_genera(string, sp_strings, genus)
-        #     species = clean_data(string, substrings)
-        #     genus_string = ""
-        #     genus_val = find_genus(lookups, species, genus_string, genus_count, "species_name")
-        #     genus_string, genus_count = genus_val
-        #     reefs.insert(coral_species_idx, new_string)
-        #     reefs[coral_species_idx + 1] = new_string
-
-
-    # genus = find_genus(lookups, species, new_string, genus_count, species["genera"])
-
     print(count)
-    # headers.insert(coral_species_idx, "CORAL_GENUS")
-    # coral_species_idx += 1
     write_csv("./cleaned.csv", reefs, headers)
 
 
