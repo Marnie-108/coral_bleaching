@@ -279,9 +279,7 @@
         "family_typos": [
             "Gorgonians"
         ],
-        "genera": [
-            {}
-        ]
+        "genera": []
     },
     {
         "family_name": "Leptastreidae",
@@ -444,9 +442,7 @@
     {
         "family_name": "Oculinidae",
         "family_typos": [],
-        "genera": [
-            {}
-        ]
+        "genera": []
     },
     {
         "family_name": "Petrosiidae",
@@ -563,8 +559,6 @@
     {
         "family_name": "Zoanthidae",
         "family_typos": [],
-        "genera": [
-            {}
-        ]
+        "genera": []
     }
 ]
