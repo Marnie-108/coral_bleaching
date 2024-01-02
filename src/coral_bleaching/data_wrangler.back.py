@@ -5,7 +5,7 @@ import umpyutl as umpy
 from pathlib import Path
 
 
-def build_str(string: str, lookup: list, key: str) -> str:
+def build_str(string: str, key: str) -> str:
     """Builds a string based on the passed in string, lookup list and key name. If the field only contains a single taxon,
     the correct taxon name is assigned to string. If there are multiple taxons, the correct taxon names are appended to the
     string. This string of correct taxons is returned.
@@ -19,9 +19,9 @@ def build_str(string: str, lookup: list, key: str) -> str:
     """
 
     if len(string) == 0:
-        string = lookup[key]
+        string = key
     else:
-        string += f", {lookup[key]}"
+        string += f", {key}"
     return string
 
 
@@ -41,10 +41,10 @@ def lookup_family(count: int, families: list, lookups: list, new_string: str) ->
     return new_string, new_count
 
 
-def lookup_genus(count: int, genera: list, lookups: list, new_string: str) -> tuple[int, str]:
+def lookup_genus(genus_count: int, genera: list, lookups: list, new_string: str) -> tuple[int, str]:
     """TODO"""
 
-    new_count = count  # reset
+    new_count = genus_count  # reset
     for genus in genera:
         new_string, new_count = match_genus(lookups, genus, new_string, new_count)
     return new_string, new_count
@@ -64,29 +64,29 @@ def match_family(lookups: list, family: str, new_string: str, count: int) -> tup
     for lookup in lookups:
         if family == lookup["family_name"]:
             print(f"family match: {family}")
-            return build_str(new_string, lookup, "family_name"), count
+            return build_str(new_string, lookup["family_name"]), count
         elif family in lookup["family_typos"]:
             print(f"family typo: {family}")
-            return build_str(new_string, lookup, "family_name"), count + 1
+            return build_str(new_string, lookup["family_name"]), count + 1
         else:
             continue
     return "", count  # avoid returning None.
 
 
-def match_genus(lookups: list, genus: str, new_string: str, count: int) -> tuple[str, int]:
+def match_genus(lookups: list, genus: str, new_string: str, genus_count: int) -> tuple[str, int]:
     """TODO"""
     for lookup in lookups:
         if lookup["genera"]:
             for gen in lookup["genera"]:
                 if gen["genus_name"] in genus:
                     print(f"genus match: {genus}")
-                    return build_str(new_string, lookup, ["genera"]["genus_name"]), count
+                    return build_str(new_string, gen["genus_name"]), genus_count
                 elif genus in gen["genus_typos"]:
                     print(f"genus typo: {genus}")
-                    return build_str(new_string, lookup, "genus_name"), count + 1
+                    return build_str(new_string, gen["genus_name"]), genus_count + 1
                 else:
                     continue
-    return "", count  # avoid returning None.
+    return "", genus_count  # avoid returning None.
 
 
 def match_species(lookups: list, species: str, new_string: str, count: int) -> tuple[str, int]:
@@ -182,6 +182,13 @@ def remove_trailing_char(string: str, char: str) -> str:
     return string[: len(string) - 1] if string[-1] == char else string
 
 
+def shift_colums(reefs, headers, column):
+        idx = headers.index(column)
+        for i in range(len(reefs)):
+            string = reefs[i][idx]
+            reefs[i][idx+1] = string
+
+
 def write_csv(filepath, data, headers=None, encoding="utf-8", newline=""):
     """
     Writes data to a target CSV file. Column headers are written as the first
@@ -255,8 +262,9 @@ def main():
 
     substrings = ("And ", "And\n", "and ", "and\n")
     coral_family_idx = headers.index("CORAL_FAMILY")
-    coral_genus_idx = headers.index("CORAL_SPECIES")
+    coral_species_idx = headers.index("CORAL_SPECIES")
     count = 0
+    genus_count = 0
     for i in range(len(reefs)):
         reef_id = reefs[i][0]
         print(f"\nReef id: {reef_id}")
@@ -273,7 +281,7 @@ def main():
             new_string, count = val
             reefs[i][coral_family_idx] = new_string
 
-        string = reefs[i][coral_genus_idx].strip()
+        string = reefs[i][coral_species_idx].strip()
         if string:
             # 'Pocillopora Sp', 'Montipora (Submasive Encrusting)', 'Fungiid (Fungia', 'Ctenactis Sandhalolita', 'Acropora (Maybe Grandis)', 'Pectinia', 'Diploastrea Heliopora', 'Echinopora', 'Galaxea'
             genera = clean_data(string, substrings)
@@ -282,10 +290,18 @@ def main():
             # TODO need to move genus values to new genus element etc.
 
             new_string = ""
-            val = lookup_genus(count, genera, lookups, new_string)
-            new_string, count = val
+            val = lookup_genus(genus_count, genera, lookups, new_string)
+            new_string, genus_count = val
+            reefs[i].insert(coral_species_idx, new_string)
+            reefs[i][coral_species_idx+1] = string
+
+    headers.insert(coral_species_idx, "CORAL_GENUS")
+    coral_species_idx += 1
+    for header in headers[15:]:
+        shift_colums(reefs, headers, header)
 
     print(count)
+    print(genus_count)
     write_csv("./cleaned.csv", reefs, headers)
 
 
