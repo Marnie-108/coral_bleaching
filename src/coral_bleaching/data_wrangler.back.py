@@ -182,13 +182,6 @@ def remove_trailing_char(string: str, char: str) -> str:
     return string[: len(string) - 1] if string[-1] == char else string
 
 
-def shift_colums(reefs, headers, column):
-        idx = headers.index(column)
-        for i in range(len(reefs)):
-            string = reefs[i][idx]
-            reefs[i][idx+1] = string
-
-
 def write_csv(filepath, data, headers=None, encoding="utf-8", newline=""):
     """
     Writes data to a target CSV file. Column headers are written as the first
@@ -293,12 +286,10 @@ def main():
             val = lookup_genus(genus_count, genera, lookups, new_string)
             new_string, genus_count = val
             reefs[i].insert(coral_species_idx, new_string)
-            reefs[i][coral_species_idx+1] = string
+            # reefs[i][coral_species_idx+1] = string
 
     headers.insert(coral_species_idx, "CORAL_GENUS")
     coral_species_idx += 1
-    for header in headers[15:]:
-        shift_colums(reefs, headers, header)
 
     print(count)
     print(genus_count)
