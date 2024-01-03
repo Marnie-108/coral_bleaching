@@ -25,82 +25,117 @@ def build_str(string: str, key: str) -> str:
     return string
 
 
-def clean_data(string: str, substrings: tuple):
+def clean_data(string: str, substrings: tuple) -> list:
     """TODO"""
 
     string = remove_substr(remove_trailing_char(string, ","), substrings)
     return [element.strip().title() for element in string.split(",")]
 
 
-def lookup_family(count: int, families: list, lookups: list, new_string: str) -> tuple[int, str]:
+def lookup_family(families: list, lookups: list, new_string: str) -> str:
     """TODO"""
 
-    new_count = count  # reset
+    new_string = ""
     for family in families:
-        new_string, new_count = match_family(lookups, family, new_string, new_count)
-    return new_string, new_count
+        family_string = match_family(
+            lookups,
+            family,
+            new_string,
+        )
+        if new_string:
+            new_string += f", {family_string}"
+        else:
+            new_string = family_string
+    return new_string
 
 
-def lookup_genus(genus_count: int, genera: list, lookups: list, new_string: str) -> tuple[int, str]:
+def lookup_genus(genera: list, lookups: list, new_string: str) -> tuple[str, str]:
     """TODO"""
 
-    new_count = genus_count  # reset
+    new_string = ""
+    families = set()
     for genus in genera:
-        new_string, new_count = match_genus(lookups, genus, new_string, new_count)
-    return new_string, new_count
+        genus_string, genus_families = match_genus(
+            lookups,
+            genus,
+            new_string,
+        )
+        if new_string:
+            new_string += f", {genus_string}"
+        else:
+            new_string = genus_string
+
+        if genus_families:
+            families.update(genus_families)
+    return new_string, list(families)
 
 
-def lookup_species(count: int, species: list, lookups: list, new_string: str) -> tuple[int, str]:
+def lookup_species(species: list, lookups: list, new_string: str) -> str:
     """TODO"""
 
-    new_count = count  # reset
+    new_string = ""
     for species_ in species:
-        new_string, new_count = match_species(lookups, species_, new_string, new_count)
-    return new_string, new_count
+        species_string = match_species(
+            lookups,
+            species_,
+            new_string,
+        )
+        if new_string:
+            new_string += f", {species_string}"
+        else:
+            new_string = species_string
+    return new_string
 
 
-def match_family(lookups: list, family: str, new_string: str, count: int) -> tuple[str, int]:
+def match_family(lookups: list, family: str, new_string: str) -> str:
     """TODO"""
     for lookup in lookups:
         if family == lookup["family_name"]:
             print(f"family match: {family}")
-            return build_str(new_string, lookup["family_name"]), count
+            return build_str(new_string, lookup["family_name"])
         elif family in lookup["family_typos"]:
             print(f"family typo: {family}")
-            return build_str(new_string, lookup["family_name"]), count + 1
+            return build_str(new_string, lookup["family_name"])
         else:
             continue
-    return "", count  # avoid returning None.
+    return ""  # avoid returning None.
 
 
-def match_genus(lookups: list, genus: str, new_string: str, genus_count: int) -> tuple[str, int]:
+def match_genus(lookups: list, genus: str, new_string: str) -> tuple[str, str]:
     """TODO"""
     for lookup in lookups:
+        families = []
         if lookup["genera"]:
             for gen in lookup["genera"]:
                 if gen["genus_name"] in genus:
                     print(f"genus match: {genus}")
-                    return build_str(new_string, gen["genus_name"]), genus_count
+                    family = lookup["family_name"]
+                    if family not in families:
+                        families.append(family)
+                    return build_str(new_string, gen["genus_name"]), families
                 elif genus in gen["genus_typos"]:
                     print(f"genus typo: {genus}")
-                    return build_str(new_string, gen["genus_name"]), genus_count + 1
+                    family = lookup["family_name"]
+                    if family not in families:
+                        families.append(family)
+                    return build_str(new_string, gen["genus_name"]), families
                 else:
                     continue
-    return "", genus_count  # avoid returning None.
+    return "", ""  # avoid returning None.
 
 
-def match_species(lookups: list, species: str, new_string: str, count: int) -> tuple[str, int]:
+def match_species(lookups: list, species: str, new_string: str) -> str:
     """TODO"""
     for lookup in lookups:
         if species == lookup["species_name"]:
             print(f"family match: {species}")
-            return build_str(new_string, lookup, "species_name"), count
+            return build_str(new_string, lookup, "species_name")
         elif species in lookup["family_typos"]:
             print(f"family typo: {species}")
-            return build_str(new_string, lookup, "species_name"), count + 1
+            return build_str(new_string, lookup, "species_name")
         else:
             continue
-    return "", count  # avoid returning None.
+    return ""  # avoid returning None.
 
 
 def read_csv(filepath, encoding="utf-8", newline="", delimiter=","):
@@ -253,11 +288,53 @@ def main():
     lookups = read_json(filepath)
     # print(lookups[0])
 
-    substrings = ("And ", "And\n", "and ", "and\n")
+    substrings = (
+        "And ",
+        "And\n",
+        "and ",
+        "and\n",
+        "Spp.",
+        " Spp.,",
+        "Spp. ",
+        "Spp",
+        " Spp,",
+        "Spp ",
+        "Sp.",
+        " Sp.,",
+        "Sp. ",
+        "Sp",
+        " Sp,",
+        "Sp ",
+        #
+        "spp.",
+        " spp.,",
+        "spp. ",
+        "spp",
+        " spp,",
+        "spp ",
+        "sp.",
+        " sp.,",
+        "sp. ",
+        "sp",
+        " sp,",
+        "sp ",
+    )
+    # sp_strings = [
+    #         "Spp.",
+    #         " Spp.,",
+    #         "Spp. ",
+    #         "Spp",
+    #         " Spp,",
+    #         "Spp ",
+    #         "Sp.",
+    #         " Sp.,",
+    #         "Sp. ",
+    #         "Sp",
+    #         " Sp,",
+    #         "Sp ",
+    #     ]
     coral_family_idx = headers.index("CORAL_FAMILY")
     coral_species_idx = headers.index("CORAL_SPECIES")
-    count = 0
-    genus_count = 0
     for i in range(len(reefs)):
         reef_id = reefs[i][0]
         print(f"\nReef id: {reef_id}")
@@ -270,29 +347,44 @@ def main():
             # TODO need to move genus values to new genus element etc.
 
             new_string = ""
-            val = lookup_family(count, families, lookups, new_string)
-            new_string, count = val
+            new_string = lookup_family(families, lookups, new_string)
             reefs[i][coral_family_idx] = new_string
 
         string = reefs[i][coral_species_idx].strip()
         if string:
             # 'Pocillopora Sp', 'Montipora (Submasive Encrusting)', 'Fungiid (Fungia', 'Ctenactis Sandhalolita', 'Acropora (Maybe Grandis)', 'Pectinia', 'Diploastrea Heliopora', 'Echinopora', 'Galaxea'
-            genera = clean_data(string, substrings)
-            print(f"\ngenera: {genera}")
+            species = clean_data(string, substrings)
+            print(f"\ngenera: {species}")
 
             # TODO need to move genus values to new genus element etc.
 
             new_string = ""
-            val = lookup_genus(genus_count, genera, lookups, new_string)
-            new_string, genus_count = val
+            val = lookup_genus(species, lookups, new_string)
+            new_string, genus_families = val
+            print(f"\nnew_string = {new_string}")
+            print(f"\ngenus_families = {genus_families}")
             reefs[i].insert(coral_species_idx, new_string)
-            # reefs[i][coral_species_idx+1] = string
+            for genus_family in genus_families:
+                if genus_family not in reefs[i][coral_family_idx]:
+                    if reefs[i][coral_family_idx]:
+                        reefs[i][coral_family_idx] += f", {genus_family}"
+                    else:
+                        reefs[i][coral_family_idx] += genus_family
+
+            new_species_string = ""
+            if new_string:
+                genera = new_string.split(", ")
+                for element in species:
+                    if element not in genera:
+                        if new_species_string:
+                            new_species_string += f", {element}"
+                        else:
+                            new_species_string = element
+                reefs[i][coral_species_idx + 1] = new_species_string
 
     headers.insert(coral_species_idx, "CORAL_GENUS")
     coral_species_idx += 1
 
-    print(count)
-    print(genus_count)
     write_csv("./cleaned.csv", reefs, headers)
 
 
