@@ -35,7 +35,45 @@
                     },
                     {
                         "species_name": "Acropora Grandis",
-                        "species_typos": []
+                        "species_typos": [
+                            "A.Grandis"
+                        ]
+                    },
+                    {
+                        "species_name": "Acropora Cervicornis",
+                        "species_typos": [
+                            "Starghorn"
+                        ]
+                    },
+                    {
+                        "species_name": "Acropora Robusta",
+                        "species_typos": [
+                            "A.Nobilis",
+                            "Acropora\t Nobilis"
+                        ]
+                    },
+                    {
+                        "species_name": "Acropora Cytherea",
+                        "species_typos": [
+                            "A.Cytherea"
+                        ]
+                    },
+                    {
+                        "species_name": "Acropora pulchra",
+                        "species_typos": [
+                            "Acroporapulchra",
+                            "Acropora\t Pulchra",
+                            "Acropora \tPulchra"
+                        ]
+                    },
+                    {
+                        "species_name": "Acropora microphthalma",
+                        "species_typos": [
+                            "Acropora \tMicrophthama",
+                            "Acropora\t Microphthalm",
+                            "Acropora \tMicrophthalma",
+                            "Acropora\t Microphthalma (Starghorn)"
+                        ]
                     }
                 ]
             },
@@ -75,7 +113,20 @@
                 "genus_species": [
                     {
                         "species_name": "Agaricia Agaricites",
-                        "species_typos": []
+                        "species_typos": [
+                            "Agaricia\t Agaricites"
+                        ]
+                    },
+                    {
+                        "species_name": "Agaricia Tenuifolia",
+                        "species_typos": [
+                            "Agaricia\tT Enuifolia",
+                            "Agaricial\t Tennuifolia"
+                        ]
+                    },
+                    {
+                        "species_name": "Agaricia Fragilis",
+                        "species_typos": "Agaricia \tFragilis"
                     }
                 ]
             },
@@ -86,13 +137,28 @@
             },
             {
                 "genus_name": "Pachyseris",
-                "genus_typos": [],
+                "genus_typos": [
+                    "Pachyseris;"
+                ],
                 "genus_species": []
             },
             {
                 "genus_name": "Pavona",
                 "genus_typos": [],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Pavona Clavus",
+                        "species_typos": [
+                            "P.Clavus"
+                        ]
+                    },
+                    {
+                        "species_name": "Pavona Frondifera",
+                        "species_typos": [
+                            "Pavona\tFrondifera"
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -129,7 +195,15 @@
                     "Briarium",
                     "Briaream"
                 ],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Briareum Asbestinum",
+                        "species_typos": [
+                            "Briareum\t Asbestinum",
+                            "Briareum\t  Asbestinum"
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -176,7 +250,9 @@
                 "genus_species": [
                     {
                         "species_name": "Diploastrea Heliopora",
-                        "species_typo": "Diploastrea Heliopore"
+                        "species_typos": [
+                            "Diploastrea Heliopore"
+                        ]
                     }
                 ]
             }
@@ -204,7 +280,8 @@
             "Ephyllidae",
             "Favia",
             "Favidae",
-            "Faviids"
+            "Faviids",
+            "Faviidaeare"
         ],
         "genera": [
             {
@@ -228,7 +305,8 @@
             "Halomitra",
             "Fungidaee",
             "Fungids",
-            "Fungiids"
+            "Fungiids",
+            "Fungidaee"
         ],
         "genera": [
             {
@@ -326,7 +404,26 @@
             {
                 "genus_name": "Meandrina",
                 "genus_typos": [],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Meandrina Meandrites",
+                        "species_typos": [
+                            "Meandrina\t Meandrites"
+                        ]
+                    }
+                ]
+            },
+            {
+                "genus_name": "Eusmilia",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Eusmilia Fastigiata",
+                        "species_typos": [
+                            "E.Fastigiata"
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -364,7 +461,9 @@
             },
             {
                 "genus_name": "Caulastraea",
-                "genus_typos": [],
+                "genus_typos": [
+                    "Caulastrea"
+                ],
                 "genus_species": []
             },
             {
@@ -384,7 +483,39 @@
                 "genus_typos": [
                     "Leptorina"
                 ],
+                "genus_species": [
+                    {
+                        "species_name": "Leptoria Phrygia",
+                        "species_typos": [
+                            "Leptoria \tPhryga"
+                        ]
+                    }
+                ]
+            },
+            {
+                "genus_name": "Favites",
+                "genus_typos": [],
                 "genus_species": []
+            },
+            {
+                "genus_name": "Orbicella",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Orbicella annularis",
+                        "species_typos": [
+                            "M.\nAnularis",
+                            "Montastraea\t Annularis"
+                        ]
+                    },
+                    {
+                        "species_name": "Orbicella faveolata",
+                        "species_typos": [
+                            "Faveolata",
+                            "M.Faveolata"
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -401,7 +532,20 @@
                     "Millapora",
                     "Millipora"
                 ],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Millepora Complanata",
+                        "species_typos": [
+                            "Millapora\t Complanata"
+                        ]
+                    },
+                    {
+                        "species_name": "Millepora Alcicornis",
+                        "species_typos": [
+                            "Millepora \tAlcicornis"
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -417,7 +561,21 @@
                     "Montastrea",
                     "Montrastea"
                 ],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Montastraea cavernosa",
+                        "species_typos": [
+                            "M.Cavernosa",
+                            "Montastrea\t Cavernosa"
+                        ]
+                    },
+                    {
+                        "species_name": "",
+                        "species_typos": [
+                            "Montastraea\t Annularis"
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -430,12 +588,47 @@
             {
                 "genus_name": "Colpophyllia",
                 "genus_typos": [],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Colpophyllia Natans",
+                        "species_typos": [
+                            "Colpophyllia.Natans",
+                            "C.Natans"
+                        ]
+                    }
+                ]
             },
             {
                 "genus_name": "Diploria",
                 "genus_typos": [],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Diploria Labyrinthiformis",
+                        "species_typos": [
+                            "Diploria \tLabyrinthiformis",
+                            "Diploria\t Labyrinthiformis"
+                        ]
+                    }
+                ]
+            },
+            {
+                "genus_name": "Pseudodiploria",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Pseudodiploria Strigosa",
+                        "species_typos": [
+                            "Diploria\t Strigosa",
+                            "Diplori A\tStrigosa"
+                        ]
+                    },
+                    {
+                        "species_name": "Pseudodiploria Clivosa",
+                        "species_typos": [
+                            "Diploria\t Clivosa"
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -506,12 +699,44 @@
                     "Porities",
                     "Porties"
                 ],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Porites Porites",
+                        "species_typos": [
+                            "P.Porites",
+                            "Porities\t Porites"
+                        ]
+                    },
+                    {
+                        "species_name": "Porites Astreoides",
+                        "species_typos": [
+                            "P.Astreoides",
+                            "Porities\t Astreoides",
+                            "Porites\t Astreoides"
+                        ]
+                    },
+                    {
+                        "species_name": "Porites Cylindrica",
+                        "species_typos": [
+                            "Porites\t Cylindrica",
+                            "Porites\tC Ylindrica",
+                            "Porites \tCylindrica",
+                            "Porites\t Cylindrica (Finger)"
+                        ]
+                    },
+                    {
+                        "species_name": "Porites Lobata",
+                        "species_typos": [
+                            "Porites\t Lobata (Lobe)"
+                        ]
+                    }
+                ]
             },
             {
                 "genus_name": "Goniopora",
                 "genus_typos": [
-                    "Goniopora"
+                    "Goniopora",
+                    "Gonopora"
                 ],
                 "genus_species": []
             }
@@ -541,7 +766,22 @@
                 "genus_typos": [
                     "Sideastrea"
                 ],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Siderastrea radians",
+                        "species_typos": [
+                            "S.\nRadians"
+                        ]
+                    },
+                    {
+                        "species_name": "Siderastrea Siderea",
+                        "species_typos": [
+                            "S.Siderea",
+                            "Siderastrea \tSiderea",
+                            "Siderea\t Siderastrea"
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -552,13 +792,23 @@
             {
                 "genus_name": "Palythoa",
                 "genus_typos": [],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Palythoa Caribaeorum",
+                        "species_typos": [
+                            "Palythoa\t  Caribbaeorum"
+                        ]
+                    }
+                ]
             }
         ]
     },
     {
         "family_name": "Zoanthidae",
-        "family_typos": [],
+        "family_typos": [
+            "Zoanthids",
+            "Zooanthid"
+        ],
         "genera": []
     }
 ]
