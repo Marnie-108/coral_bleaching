@@ -37,11 +37,7 @@ def lookup_family(families: list, lookups: list, new_string: str) -> str:
 
     new_string = ""
     for family in families:
-        family_string = match_family(
-            lookups,
-            family,
-            new_string,
-        )
+        family_string = match_family(lookups, family, new_string)
         if new_string:
             new_string += f", {family_string}"
         else:
@@ -305,7 +301,6 @@ def main():
         "Sp",
         " Sp,",
         "Sp ",
-        #
         "spp.",
         " spp.,",
         "spp. ",
