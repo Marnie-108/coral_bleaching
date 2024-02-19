@@ -1177,7 +1177,7 @@ complete = [
 #     if gen not in complete:
 #         species2.append(gen)
 
-#print(f"Species2 {species2}\n")
+# print(f"Species2 {species2}\n")
 # complete.append(species2)
 # #print(complete)
 # tstr = []
@@ -1206,72 +1206,633 @@ complete = [
 
 # print(f"subsp2: {len(subsp2)}")
 
-print(f"Species: {len(species)}")
+# print(f"Species: {len(species)}")
 
-s_typo_t = False
-f_typo_t = False
-g_typo_t = False
-new_sp = []
-get_out = False
+# s_typo_t = False
+# f_typo_t = False
+# g_typo_t = False
+# new_sp = []
+# get_out = False
+# found = False
 
-for sp in species:
-    for substring in substrings:
-        sp = sp.replace(substring, "")
-    sp = sp.strip().title()
-    for lookup in lookups:
-        if get_out:
-            break
-        if sp == lookup["family_name"]:
-            get_out = True
-            break
-        else:
-            for f_typo in lookup["family_typos"]:
-                if get_out:
-                    break
-                if sp != f_typo:
-                    f_typo_t = False
-                else:
-                    f_typo_t = True
-                    get_out = True
-                    break
-            if f_typo_t == False:
-                for genus in lookup["genera"]:
-                    if get_out:
-                        break
-                    if sp == genus["genus_name"]:
-                        get_out = True
-                        break
-                    else:
-                        for g_typo in genus["genus_typos"]:
-                            if get_out:
-                                break
-                            if sp != g_typo:
-                                g_typo_t = False
-                            else:
-                                g_typo_t = True
-                                get_out = True
-                                break
-                        if g_typo_t == False:
-                            for sp_ in genus["genus_species"]:
-                                if get_out:
-                                    break
-                                if sp == sp_["species_name"]:
-                                    get_out = True
-                                    break
-                                else:
-                                    for s_typo in sp_["species_typos"]:
-                                        if get_out:
-                                            break
-                                        if sp != s_typo:
-                                            s_typo_t = False
-                                        else:
-                                            s_typo_t = True
-                                            get_out = True
-                                            break
-                                    if s_typo_t == False:
-                                        if sp not in new_sp:
-                                            new_sp.append(sp)
-    get_out = False
+# for sp in species:
+#     if get_out:
+#         break
+#     for substring in substrings:
+#         sp = sp.replace(substring, "")
+#     sp = sp.strip().title()
+#     if get_out:
+#         break
+#     for lookup in lookups:
+#         if get_out:
+#             break
+#         if sp == lookup["family_name"]:
+#             found = True
+#             get_out = True
+#             break
+#         else:
+#             for f_typo in lookup["family_typos"]:
+#                 if get_out:
+#                     break
+#                 if sp != f_typo:
+#                     f_typo_t = False
+#                 else:
+#                     found = True
+#                     f_typo_t = True
+#                     get_out = True
+#                     break
+#             if f_typo_t == False:
+#                 for genus in lookup["genera"]:
+#                     if get_out:
+#                         break
+#                     if sp == genus["genus_name"]:
+#                         found = True
+#                         get_out = True
+#                         break
+#                     else:
+#                         for g_typo in genus["genus_typos"]:
+#                             if get_out:
+#                                 break
+#                             if sp != g_typo:
+#                                 g_typo_t = False
+#                             else:
+#                                 found = True
+#                                 g_typo_t = True
+#                                 get_out = True
+#                                 break
+#                         if g_typo_t == False:
+#                             for sp_ in genus["genus_species"]:
+#                                 if get_out:
+#                                     break
+#                                 if sp == sp_["species_name"]:
+#                                     found = True
+#                                     get_out = True
+#                                     break
+#                                 else:
+#                                     for s_typo in sp_["species_typos"]:
+#                                         if get_out:
+#                                             break
+#                                         if sp != s_typo:
+#                                             s_typo_t = False
+#                                         else:
+#                                             found = True
+#                                             s_typo_t = True
+#                                             get_out = True
+#                                             break
+#                                     if s_typo_t == False:
+#                                         if sp not in new_sp:
+#                                             found = False
+#     if found == False:
+#         new_sp.append(sp)
+#     found = False
+#     get_out = False
 
-print(f"New Species: {len(new_sp)}")
-print(new_sp)
+# print(f"New Species: {len(new_sp)}")
+# print(new_sp)
+
+new_sp = [
+    "Cladocora Caeitosa",
+    "Oculina Patagonensis",
+    "Pavona Porites",
+    "Montastraea Annularis",
+    "Stephanocoenia Intersepta",
+    "Leptoseris Cucullata",
+    "A . Palmata",
+    "Stylophora  Porites",
+    "Pocillopora Eydouxi",
+    "P. Verrucosa",
+    "P. Damicornis",
+    "Montipora Hydnophora",
+    "Porites Bra",
+    "Galexea Astreata",
+    "Fungia Pocillopora",
+    "Various Faviids Fungiids",
+    "Pavona.",
+    "Sinularia Alcyonium Genera",
+    "Porites Massive",
+    "Montipora Coscinarea.",
+    "Galaxea Fascicularis",
+    "Pocillopora Seriatiopora",
+    "Platygyra Favia",
+    "A Cropora",
+    "Acropora  Pocillaria",
+    "Refer To Table",
+    "A. Hyacinthus A. Austera",
+    "Similar To Tmr",
+    "Primarily Affecting Montipora Alveopora  The Onge S. Kelleri",
+    "M. Aequituberculata",
+    "M. Monasteriata M. Tuberculosa (55:0 +-24:4% Of All The Montipora\nColonies)",
+    "A. Ongiosa A. Clathrata. The\nAlcyoniidae S. Dura",
+    "L. Depressum To A Lesser\nExtent L. Patulum",
+    "Onge S. Kelleri",
+    "Galaxea Astreata",
+    "Physogyra",
+    "Plerogyra",
+    "Porites Branching",
+    "Synarea",
+    "Lobopyllia",
+    "Merulina",
+    "Mycedium",
+    "Oxypora",
+    "Galaxea Astreata",
+    "Psammacora",
+    "Gardinoseris",
+    "Heliopora",
+    "V",
+    "Hard Coral",
+    "Pocillaria",
+    "Mostly Acopora",
+    "All But Porites",
+    "Acropora Digitifera",
+    "A. Austera",
+    "A. Abrotanoides",
+    "A. Cytherea",
+    "A. Clathrata",
+    "Montipora Aequituberculata",
+    "Favia Stelligera",
+    "Massive Porites",
+    "Porites Rus Platygyra Daedalea",
+    "Diploria Strigosa",
+    "Montastrea Annularis",
+    "Diploria Labryinthiformis",
+    "Mussa Angulosa",
+    "Erythropodium Caribaeorum",
+    "Plexaurella",
+    "Dendrogyra Cylindrus",
+    "Montastraea Faveolata",
+    "Montastraea Cavernosa",
+    "Diplora Strigosa",
+    "Diplora Labyrinthiformis",
+    "Agaricia Fragilis Palythoa Caribaeorum",
+    "Miliopora Complanata",
+    "Meandrina Mendrites",
+    "Sea Fan",
+    "Agaricia Lamarcki",
+    "Diploria Clivosa",
+    "Montastraea Franksi",
+    "Siderastrea Radians",
+    "Diplorea Strigosa",
+    "Colpohylia Natans Montastraea Annularis",
+    "Stephanocoenia Intersepts",
+    "Montastraea Cavermosa",
+    "Siderastrea Sidera",
+    "Madracis Mirabilis",
+    "Madracis Formosa",
+    "Sea Plumes- Pseudopterogorgia",
+    "Common Sea Fan- Gorgonia Ventalina",
+    "Millepora Alicornis",
+    "Eusmilia Fastigiana",
+    "Agaricia Undata",
+    "Montastrea  Annularis",
+    "Acropora  Palmata",
+    "Condylactis Gigantea",
+    "Xestoongia\nMuta (Caribbean Barrel Onge)",
+    "Aplysina Fistularia ( Yellow Tube Onge)",
+    "Giant Barrel Onges (Xestoongia Muta)",
+    "Montastrea Faviolata",
+    "S. Radians",
+    "All Diplorias",
+    "Octocorals",
+    "Colpophylia Natans. Millepora",
+    "Scleractinian  Porites",
+    "Porites Asteroides",
+    "Acropora Palmata A. Cervicornis",
+    "Montastraea  (= Annularis Complex)",
+    "Scleractinian Coral",
+    "Colpophyllia Natans.",
+    "Dichocoenia Stokesi",
+    "D. Strigosa M. Annularis",
+    "A. Cervicornis A. Palmata",
+    "A. Tenuifolia",
+    "Diploria Labrynthyformis",
+    "M. Faveolata",
+    "A. Tennuifolia",
+    "D. Strigosa",
+    "S. Siderea",
+    "Porites Furcata",
+    "Eunicea",
+    "Palythoa Caribbea.",
+    "Eunicea",
+    "Palythoa Caribbea",
+    "Siderastrea Siderea Porites Furcata Acropora Palmata Eunicea",
+    "Pocillopora Panamensis",
+    "Unknown Ecies",
+    "Scleractinians",
+    "Hydrocorals",
+    "Not Montastrea Cavernosa",
+    "Agaricia ; Porites Porites; Millepora ;\nSidearstrea Sidereal;",
+    (
+        "Agaricia ; Porites Porites; Millepora ; Montastrea Annularis; Diploria Strigosa; Diploria"
+        " Labryinthiformis;\nFavia Fragum; Meandrina Meandrites"
+    ),
+    "Montastraea Cf. Annularis",
+    "Porites Porites; Millepora ; Agaricia ; Porites Asteriodes",
+    "Porites Porites; Montastrea Annularis;",
+    "M. Cavernosa",
+    "Favia Fragum",
+    "(Finger Corals)",
+    "Porites Asteroids",
+    "Porites Porites; Millepora ; Sidearstrea Siderea; Porites Asteriodes",
+    "Agaricia \tFragilis",
+    "Millepora\t Alcicornis",
+    "Montastrea Franksi",
+    "D. Labyrinthiformis Porites Asteroides",
+    "D. Labyrinthiformis",
+    "Porites Asteroides Agaricia Fragilis",
+    "Montastreae Franksii",
+    "Montastraea Frankesi",
+    "Diploria Labyrithiformis",
+    "Agaricia  Fragilis",
+    "Argaricia Lamarcki",
+    "Monastraea Faveolata",
+    "Brain Corals Branched Porites",
+    "Montastraea  Agaricia",
+    "Montastraea Franksi Acropora Palmata",
+    "Diploria Other Massive",
+    "Not So For Acropora Palmata Nor Millepora",
+    "Brain Coral",
+    "Porites  Diploria",
+    "Agaricia  Montastraea",
+    "Montastraea  Porites",
+    "Montastraea Franksi Agaricia",
+    "Montastraea Cavernosa Diploria",
+    "Agaricia  Siderastrea Siderea",
+    "Acropara Palmata",
+    "Agaracia Lamarcki",
+    "Diploria Labririnthiformis",
+    "Diplora Labrynthiformis",
+    "Meandrina Meandricites",
+    "Millepora Alcicornis M. Complanata",
+    "Millepora  (Mainly Complanata)",
+    "Acropora Cervicornis Agaricia Agaricites: Porites Porites: \nPalythoa Caribaeorum",
+    "Mussismilia Hiida",
+    "Siderastrea Stellata",
+    "Pocillopora Verrucosa",
+    "A. Grahamae",
+    "A. Undata",
+    "M. Franksi",
+    "P. Astreoides",
+    "Others.",
+    "Colopophyllia Natans",
+    (
+        "Montastraea Faveolata; M. Annularis; M. Franksi; M. Cavernosa; Diploria Labyrinthiformis;"
+        " D. Strigosa"
+    ),
+    (
+        "Colpophyllia Natans; Porites Astreoides; Scolymia ; Siderastrea Siderea; Meandrina"
+        " Meandrites; Porites Porites; Millepora Alcicornis; M. Complanata"
+    ),
+    "A . Cervicornis",
+    "A . Tenuifolia",
+    "P . Porites",
+    "Favia Fragun",
+    "D . Labyrinthiformis",
+    "D . Strigosa",
+    "Pavona Gigantea",
+    "Favia Fragum Millepora",
+    "M. Complanata",
+    "E. Fastigiata",
+    "F. Fragum",
+    "Pavona Varians",
+    (
+        "Montastraea Faveolata; M. Annularis; Diploria Labyrinthiformis; D. Strigosa; Porites"
+        " Astreoides; Siderastrea Siderea"
+    ),
+    "Acropora Palmate",
+    "Siderastrea Sidereal",
+    "A Tenuifolia",
+    "Colpophyilia Natans",
+    "The Zoanthid Palythoa\nCaribbaeorum",
+    "P. Varians",
+    "Psammocora Stellata",
+    "Diaseris Distorta",
+    "Cycloseris Curvata",
+    "Psammacora Stellata",
+    "Millepora Alcicornis P. Astereoides.",
+    "A. Palmata M. Complanta",
+    "Millepora Intricata",
+    "C. Natans",
+    "M. Meandrites",
+    "A. Agaricites",
+    "Colpophyllia Porites",
+    "Stephanocoenia Michelini",
+    (
+        "Millepora Alcicornis\nM. Complanta \nAgaricia Tenuifolia\nA. Agaricites\nDiploria"
+        " Labyrinthiformis"
+    ),
+    "Siderastrea  Millepora",
+    "Agaricia Agaracites",
+    "Sidereastrea Siderea",
+    "Stephanocoenia Mechellini Palythoa  Ecies Unaffected Were Dichocoenia Stokesii",
+    "Montastrea Cavernosa",
+    "M. Alcicornis",
+    "Erythropodium Caribaeorum (Encrusting Gorgonian) Briaream\nAsbestinum",
+    "Sideratrea  Dichocoenia Stokesii",
+    "Montastrea Faveolata",
+    "M. Annularis",
+    "Dichocoenia Stokesii",
+    "D. Labrynthiformis",
+    "P. Porites",
+    "Stephanocoenia Intersepta",
+    "Some Other Gorgonians.",
+    "Amphistengina Gibbosa",
+    "S. Siderea",
+    "Millepora (Fire Coral)",
+    "Montastrea Annularis\nDiploria Strigosa",
+    "Palythoa Caribaeourm",
+    "Millepora Complanta",
+    "P. Furcata",
+    "P. Divaricata",
+    "Millipora Alcicornis",
+    "M. Complanata M. Complanata Palythoa Caribaeorum",
+    "Erythropodium",
+    "A. Palmata",
+    "M. Complanata Palythoa Caribaeorum",
+    "<Br>\nEncrusting Gorgonians (Erythropodium Caribbaeorum) Zoanthids (Palythoa Caribbaeorum)",
+    "Diploria Clivosa Millepora Alcicornis.",
+    "Siderastrea\nSiderea Montastrea Annularis.",
+    "M. Squarrosa",
+    "Diploria Strigosa D. Labyrinthyformis",
+    "Undaria Agaricites",
+    (
+        "Siderastrea Siderea Are The Most Affected Within The Hard Corals. Millepora  Erythropodium"
+        " Caribbaeorum"
+    ),
+    "Palythoa Caribbaeorum",
+    "Palythoa Caribaerum",
+    "Briaeorun Asbestinum",
+    "Agaricia Agaricites Ecies ( A. Agaricites",
+    "A. Humilis",
+    "A. Danae",
+    "A. Purpurea)",
+    "Porites Porites  P. Divaricata",
+    "Montastraea Group ( M. Faveolata M. Franksi )",
+    "Only Pseudoplexaura Porosa Plexaurella Nutans.",
+    "Scolymia Cubensis",
+    "Agaricia Humilis",
+    "Milleporids Alcicornis",
+    "M.Memorialis",
+    "L.Cucullata",
+    "Stephanocoenia Intersepta Montastraea Cavernosa",
+    "Millepora Alcicornis Montastrea Cavernosa",
+    "Montastraea Cavernosa At Least Eleven Other Ecies",
+    "Porites Divaricata",
+    "Almost All Of The Montastraea Colonies (Except M. Cavernosa)",
+    "Millepora <Br>\nPalythoa",
+    "Pories Porites",
+    "Mycetophyllia",
+    "Isophyllia",
+    "Solenastrea",
+    "Manicina Areolata",
+    "Madracis",
+    "The Zoanthid Palythoa",
+    "Montastraea Annularis (Complex)",
+    "P. Astreoides",
+    "Colpophyllia \nNatans",
+    "Leptoseris Cuculata",
+    "Acropora Nobilis",
+    "A. Hyacinthus",
+    "A. Digitifera",
+    "Platygyra Lamellina",
+    "Acropora Monticulosa",
+    "Pocillopora Eudoxii",
+    "Montipora Informis",
+    "Favites Etc. Porites",
+    "Lobophytum Crassum",
+    "Porites Lutea Montipora Digitata",
+    "Echinophyllia Soft Corals.",
+    "Millepora Soft Corals",
+    "Soft Coral Sea Anemone",
+    "Pocilopora Damicornis",
+    "Acropora Formosa",
+    "A. Intermedia",
+    "Montipora Digitata",
+    "Goniastera",
+    "Echinopora   Favia",
+    "Branching Coral",
+    "A. Formosa",
+    "A. Nobilis",
+    "M. Foliosa",
+    "M. Digitata Pocillopora Damicornis.",
+    "M. Foiliosa",
+    "M. Divaricata",
+    "Hydnopora",
+    "Acropora Humilis",
+    "Favia Pallida",
+    "Fungia Concinna",
+    "Lobophyllia Robusta",
+    "Montostrea",
+    "Lobophyllia Corymbosa",
+    "Montipora Foliosa",
+    "Fvia",
+    "Gonioastrea",
+    "Pocilipora Damicornis",
+    "Goniastrea  Favites",
+    "Montipora Digitata Favia",
+    "Table Acropora",
+    "Pocilloproa Verrucosa P. Damicornis",
+    "Acropora Cerealis",
+    "Gardineroseries",
+    "Favites Abdita",
+    "Montipora Foliosa M. Divaricata",
+    "Sea Anemones",
+    "Tabular Acroporidae",
+    "Platygyra  Porites.",
+    "Favia Favus",
+    "Platygyra Daedalea",
+    "Hydnophora Microconos",
+    "Symphyllia Radians",
+    "Pocillopora Damicornis",
+    "Acropora Muricata",
+    "Favids. Not Montipora",
+    "Acropora  D. Heliopora",
+    "Hydrophora",
+    "Massive Porites",
+    "Branching",
+    "Table Form Brain Coral",
+    "Acropora Table",
+    "Acropora Branching",
+    "Seriotopora Hystrix",
+    "Montipora (Submasive Encrusting)",
+    "Fungiid (Fungia",
+    "Ctenactis Sandhalolita)",
+    "Diploastrea Heliopora Pectinia",
+    "Submassive",
+    "Encrusting",
+    "Solitary",
+    "Soft Hard Corals Are Bleached",
+    "Predominantly Leather Coral",
+    "Encrusting Coral Plate Coral",
+    "Hard Corals Bleached",
+    "Predominantly Encrusting Coral On This Reef",
+    "Poritidae Boulder Corals",
+    "Euphyllia Glabrescens",
+    "Plate Coral",
+    "Mushroom Coral",
+    "Acropora  Euphyllia Glabrescens",
+    "Porites Bommies",
+    "Hard Coral Bommies",
+    "Organ Pipe Coral",
+    "Encrusting Coral",
+    "Soft Coral",
+    "Plate Corals",
+    "Montipora Pachyseris",
+    "Branching Acropora",
+    "P. Lutea",
+    "Psammocora Digitata",
+    "Massive Corals Eecially Patches Of Porites",
+    "Sea Anemonies",
+    "Barrel Onges (Bleached White Onges Disintegrated)",
+    "Dendronepthiid Soft Corals",
+    "Sea Anemone",
+    "Sea Anemone (Heteractis Magnifica)",
+    "Plate Encrusting Corals",
+    "Hard Corals",
+    "Predominantly Encrusting Coral Plate Coral On This Reef",
+    "Predominantly Encrusting Coral Plate Coral",
+    "Hard Corals Are Bleached",
+    "Predominantly Plate Coral",
+    "Favites  Zooantids",
+    "Plate Encrusting Coral",
+    "Encrusting Coral (Galaxea)",
+    "Montipora.",
+    "Turbinaria..",
+    "Porites.",
+    "Turbinaria.",
+    "Galaxea Fasicularis",
+    "Plating",
+    "Branching Foliose Forms. Mainly Acropora",
+    "Not Porites",
+    "Porites Pavona Millepora.",
+    "Staghorn",
+    "Brain Types. Not Firecoral.",
+    "Acropora  Seriatopora Hystrix",
+    "P. Lobata",
+    "Sarcophyton \nBottlebrush Acropora  Pocillopora Damicornis",
+    "Soft Coral Forms (Sinularia Flexibilis",
+    "Other Sinularia  Sarcophyton",
+    "Porites Pavona Millepora Carijoa",
+    "Goniastrea Aer",
+    "Platygyra Sinensis",
+    "Porites Lutea",
+    "Goniastrea Aer G. Retiformis",
+    "G. Retiformis",
+    "P. Daedales",
+    "Acropora Aer",
+    "Coeloseris Mayeri",
+    "Leptastrea Transversa",
+    "Massive Porties",
+    "Lobophytum Sinularia.",
+    "Lobophytum Sinularia",
+    "Acropora Chytherea",
+    "A. Microphhtalmata",
+    "A. Hyacinthus.",
+    "Massive Corals",
+    "Stylophora Pistillata",
+    "Stylophora Pistillate",
+    "Massive",
+    "Hard Soft Corals Of A Wide Range Of Ecies With Anemones",
+    "Acropora Plates",
+    "Fungid",
+    "Brain",
+    "Fire Coral",
+    "Acropora Arabensis",
+    "A. Clathata",
+    "Coscinarea Monile",
+    "Porites Compressa",
+    "Massive Hard Corals",
+    "Soft Corals",
+    "Symphyllia Recta",
+    "Platygyra Soft Corals.",
+    "Acropora Clathrata",
+    "A. Downingi",
+    "Cyphastrea Microphthalma",
+    "Oculina Patagonica",
+    "Montastrea Curta",
+    "Pocillopora Verrusosa Porites",
+    "Acropora Pulcha",
+    "Pocillopora Eydox",
+    "P. Verrucosa Pale",
+    "Pavona Maldivensis",
+    "Acropora Crateriformis",
+    "Lepastrea Purpurea",
+    "Goniastrea Edwardsi",
+    "Goniastrea Retiformis",
+    "Acropora Microphthama",
+    "Acropora Pocillopora",
+    "Pocillopora Montastrea Curta",
+    "Pocillopora Eydoxi P. Verrucosa",
+    "Porites  Leptoria \tPhryga",
+    "Montipora Verrucosa",
+    "Favia.",
+    "Acropora Pulchra",
+    "Montastrea Curta Some Porites",
+    (
+        "Major Ecies Affected- Acropora Staghorn (3 Ecies) \nAcropora Palifera A. Cf. Listeri -"
+        " Very Minor Bleaching"
+    ),
+    "Montipora Venosa",
+    "Branching Plate Aropora",
+    "Millepora Platyphylla",
+    "Montipora  Acropora Verweyi",
+    "Seriatopora Aculeta",
+    "Pachyeris Eciosa",
+    "Montastraea Curta",
+    "Small Acropora",
+    "Such As A.\nDigitifera",
+    "Acropora Seriata(?)",
+    "Porites Millepora",
+    "Acroporas (At Least Cerealis Robusta Maybe Nana",
+    "All Acropora Ecies\nLobophytum \nPocillopora \n\nOther Coral Show No Bleaching",
+    "Acropora  \nLobophytum Pauciflorum \nPavona Cactus",
+    "Fungia Fungites \nLobophylla Hemprichii",
+    "Montipora Foveolata",
+    "Pocillopora Elegans",
+    "Acropora Humulis",
+    "Boloceriodes  & The Onge Irastrella Cf. Vagabundi",
+    "Montipora & Pavona Resistant To Bleaching",
+    "Montipora Leptoseris",
+    "Porites\nFungia",
+    (
+        "Branching Forms Are Small (Diameter<30Cm) More Heavily Impacted ; Encrusing Forms Abundant"
+        " But Occasional Bleaching."
+    ),
+    "Small (<20Cm Diameter) Branching Colonies (Acorporids",
+    (
+        "Pocillopra) Encrusting Montipora; No Bleaching On Massive Porites (Largest 25% Of Massive"
+        " Corals Is ~2Meters); Total Cover - 1-10%"
+    ),
+    "Bleaching Occur Mostly\nFor Tabular Acroporid Forms",
+    "~10-30% Of Colonies Were Bleached",
+    "Acropora  Echinopora",
+    "Sinnularia",
+    "Acropora Pocillopora.",
+    "Halimetra Pilleus",
+    "Dominated By Acropora.",
+    "Shallow Fringing Reef Off A Small Inshore\nIsland. No Particular Dominants.",
+    "Dominated By Soft Corals",
+    "Scleractinian Corals Dominated By Small Pocillopora.",
+    "Stylophora Pocillopora",
+    "A. Muricata",
+    "A. Aera",
+    "Symphillia",
+    "Pocillopora Darmicornis",
+    "P. Eydouxi",
+    "P. Meandrina P. Verrucosa",
+    "Acropora\t Microphthalma",
+    "Staghorn Acropora",
+    "Acropora  (Plate Staghorn)",
+    "Montipora Patula",
+    "Porites Evermanni",
+    "Montipora Capitata",
+    "Pocillopora Meandrina",
+    "Pocillopora Damicornis",
+    "Pocillipora Eydouxi",
+]
+
+count = 0
+for sp in new_sp:
+    if "." in sp:
+        count +=1
+        print(f"{sp},")
+print(count)
