@@ -1830,9 +1830,242 @@ new_sp = [
     "Pocillipora Eydouxi",
 ]
 
-count = 0
+# count = 0
+# for sp in new_sp:
+#     if "." in sp:
+#         count +=1
+#         print(f"{sp},")
+# print(count)
+
+printed = [
+"A . Palmata",
+"P. Verrucosa",
+"P. Damicornis",
+"Pavona.",
+"Montipora Coscinarea.",
+"A. Hyacinthus A. Austera",
+"Primarily Affecting Montipora Alveopora  The Onge S. Kelleri",
+"M. Aequituberculata",
+"M. Monasteriata M. Tuberculosa (55:0 +-24:4% Of All The Montipora Colonies)",
+"A. Ongiosa A. Clathrata. The Alcyoniidae S. Dura",
+"L. Depressum To A Lesser Extent L. Patulum",
+"Onge S. Kelleri",
+"A. Austera",
+"A. Abrotanoides",
+"A. Cytherea",
+"A. Clathrata",
+"S. Radians",
+"Colpophylia Natans. Millepora",
+"Acropora Palmata A. Cervicornis",
+"Colpophyllia Natans.",
+"D. Strigosa M. Annularis",
+"A. Cervicornis A. Palmata",
+"A. Tenuifolia",
+"M. Faveolata",
+"A. Tennuifolia",
+"D. Strigosa",
+"S. Siderea",
+"Palythoa Caribbea.",
+"Montastraea Cf. Annularis",
+"M. Cavernosa",
+"D. Labyrinthiformis Porites Asteroides",
+"D. Labyrinthiformis",
+"Millepora Alcicornis M. Complanata",
+"A. Grahamae",
+"A. Undata",
+"M. Franksi",
+"P. Astreoides",
+"Others.",
+"Montastraea Faveolata; M. Annularis; M. Franksi; M. Cavernosa; Diploria Labyrinthiformis; D. Strigosa",
+"Colpophyllia Natans; Porites Astreoides; Scolymia ; Siderastrea Siderea; Meandrina Meandrites; Porites Porites; Millepora Alcicornis; M. Complanata",
+"A . Cervicornis",
+"A . Tenuifolia",
+"P . Porites",
+"D . Labyrinthiformis",
+"D . Strigosa",
+"M. Complanata",
+"E. Fastigiata",
+"F. Fragum",
+"Montastraea Faveolata; M. Annularis; Diploria Labyrinthiformis; D. Strigosa; Porites Astreoides; Siderastrea Siderea",
+"P. Varians",
+"Millepora Alcicornis P. Astereoides.",
+"A. Palmata M. Complanta",
+"C. Natans",
+"M. Meandrites",
+"A. Agaricites",
+"Millepora Alcicornis M. Complanta ",
+"Agaricia Tenuifolia",
+"A. Agaricites",
+"Diploria Labyrinthiformis",
+"M. Alcicornis",
+"M. Annularis",
+"D. Labrynthiformis",
+"P. Porites",
+"Some Other Gorgonians.",
+"S. Siderea",
+"P. Furcata",
+"P. Divaricata",
+"M. Complanata M. Complanata Palythoa Caribaeorum",
+"A. Palmata",
+"M. Complanata Palythoa Caribaeorum",
+"Diploria Clivosa Millepora Alcicornis.",
+"Siderastrea Siderea Montastrea Annularis.",
+"M. Squarrosa",
+"Diploria Strigosa D. Labyrinthyformis",
+"Siderastrea Siderea Are The Most Affected Within The Hard Corals. Millepora  Erythropodium Caribbaeorum",
+"Agaricia Agaricites Ecies ( A. Agaricites",
+"A. Humilis",
+"A. Danae",
+"A. Purpurea)",
+"Porites Porites  P. Divaricata",
+"Montastraea Group ( M. Faveolata M. Franksi )",
+"Only Pseudoplexaura Porosa Plexaurella Nutans.",
+"M.Memorialis",
+"L.Cucullata",
+"Almost All Of The Montastraea Colonies (Except M. Cavernosa)",
+"P. Astreoides",
+"A. Hyacinthus",
+"A. Digitifera",
+"Favites Etc. Porites",
+"Echinophyllia Soft Corals.",
+"A. Intermedia",
+"A. Formosa",
+"A. Nobilis",
+"M. Foliosa",
+"M. Digitata Pocillopora Damicornis.",
+"M. Foiliosa",
+"M. Divaricata",
+"Pocilloproa Verrucosa P. Damicornis",
+"Montipora Foliosa M. Divaricata",
+"Platygyra  Porites.",
+"Favids. Not Montipora",
+"Acropora  D. Heliopora",
+"P. Lutea",
+"Montipora.",
+"Turbinaria..",
+"Porites.",
+"Turbinaria.",
+"Branching Foliose Forms. Mainly Acropora",
+"Porites Pavona Millepora.",
+"Brain Types. Not Firecoral.",
+"P. Lobata",
+"Goniastrea Aer G. Retiformis",
+"G. Retiformis",
+"P. Daedales",
+"Lobophytum Sinularia.",
+"A. Microphhtalmata",
+"A. Hyacinthus.",
+"A. Clathata",
+"Platygyra Soft Corals.",
+"A. Downingi",
+"P. Verrucosa Pale",
+"Pocillopora Eydoxi P. Verrucosa",
+"Favia.",
+"Major Ecies Affected- Acropora Staghorn (3 Ecies) Acropora Palifera A. Cf. Listeri - Very Minor Bleaching",
+"Such As A. Digitifera",
+"Boloceriodes  & The Onge Irastrella Cf. Vagabundi",
+"Branching Forms Are Small (Diameter<30Cm) More Heavily Impacted ; Encrusing Forms Abundant But Occasional Bleaching.",
+"Acropora Pocillopora.",
+"Dominated By Acropora.",
+"Shallow Fringing Reef Off A Small Inshore Island. No Particular Dominants.",
+"Scleractinian Corals Dominated By Small Pocillopora.",
+"A. Muricata",
+"A. Aera",
+"P. Eydouxi",
+"P. Meandrina P. Verrucosa"]
+print(len(new_sp))
+new_sp2 = []
 for sp in new_sp:
     if "." in sp:
-        count +=1
-        print(f"{sp},")
-print(count)
+        pass
+    else:
+        new_sp2.append(sp)
+new_sp3 = []
+s_typo_t = False
+f_typo_t = False
+g_typo_t = False
+get_out = False
+found = False
+
+for sp in new_sp2:
+    if get_out:
+        break
+    for substring in substrings:
+        sp = sp.replace(substring, "")
+    sp = sp.strip().title()
+    if get_out:
+        break
+    for lookup in lookups:
+        if get_out:
+            break
+        if sp == lookup["family_name"]:
+            found = True
+            get_out = True
+            break
+        else:
+            for f_typo in lookup["family_typos"]:
+                if get_out:
+                    break
+                if sp != f_typo:
+                    f_typo_t = False
+                else:
+                    found = True
+                    f_typo_t = True
+                    get_out = True
+                    break
+            if f_typo_t == False:
+                for genus in lookup["genera"]:
+                    if get_out:
+                        break
+                    if sp == genus["genus_name"]:
+                        found = True
+                        get_out = True
+                        break
+                    else:
+                        for g_typo in genus["genus_typos"]:
+                            if get_out:
+                                break
+                            if sp != g_typo:
+                                g_typo_t = False
+                            else:
+                                found = True
+                                g_typo_t = True
+                                get_out = True
+                                break
+                        if g_typo_t == False:
+                            for sp_ in genus["genus_species"]:
+                                if get_out:
+                                    break
+                                if sp == sp_["species_name"]:
+                                    found = True
+                                    get_out = True
+                                    break
+                                else:
+                                    for s_typo in sp_["species_typos"]:
+                                        if get_out:
+                                            break
+                                        if sp != s_typo:
+                                            s_typo_t = False
+                                        else:
+                                            found = True
+                                            s_typo_t = True
+                                            get_out = True
+                                            break
+                                    if s_typo_t == False:
+                                        if sp not in new_sp:
+                                            found = False
+    if found == False:
+        new_sp3.append(sp)
+    found = False
+    get_out = False
+
+# print(f"New Species: {len(new_sp3)}")
+# print(new_sp3)
+
+common = []
+
+for sp in new_sp3:
+    if "cropora" in sp or "orites" in sp or "avia" in sp or "ungia" in sp or "ocillopora" in sp or "garicia" in sp:
+        common.append(sp)
+
+print(common)
