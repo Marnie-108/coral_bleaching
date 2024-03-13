@@ -9,7 +9,13 @@
             "Acropora Nasuta",
             "Acropora Palmata",
             "Acropora Grandis",
-            "Acroporids"
+            "Acroporids",
+            "Small (<20Cm Diameter) Branching Colonies (Acorporids",
+            "Mostly Acopora",
+            "Tabular Acroporidae",
+            "Table Form Brain Coral",
+            "Acropora  Palmata",
+            "For Tabular Acroporid Forms"
         ],
         "genera": [
             {
@@ -22,7 +28,22 @@
                     "Branching Foliose Forms. Mainly Acropora",
                     "Major Ecies Affected- Acropora Staghorn (3 Ecies)",
                     "Dominated By Acropora.",
-                    "A Cropora"
+                    "A Cropora",
+                    "Table Acropora",
+                    "Acropora Table",
+                    "Acropora Branching",
+                    "Branching Acropora",
+                    "Acropora Aer",
+                    "Acropora Plates",
+                    "Acropora Crateriformis",
+                    "Small Acropora",
+                    "Acroporas (At Least Cerealis Robusta Maybe Nana",
+                    "All Acropora Ecies\nLobophytum \nPocillopora \n\nOther Coral Show",
+                    "Branching Plate Aropora",
+                    "For Tabular Acroporid Forms",
+                    "Bottlebrush Acropora",
+                    "All Acropora Ecies",
+                    "Acropora  (Plate Staghorn)"
                 ],
                 "genus_species": [
                     {
@@ -40,7 +61,9 @@
                         "species_name": "Acropora Palmata",
                         "species_typos": [
                             "A. Palmata",
-                            "Acropora Palmate"
+                            "Acropora Palmate",
+                            "Acropara Palmata",
+                            "A . Palmata"
                         ]
                     },
                     {
@@ -54,7 +77,10 @@
                         "species_typos": [
                             "Starghorn",
                             "A. Cervicornis",
-                            "A . Cervicornis"
+                            "A . Cervicornis",
+                            "Staghorn Acropora",
+                            "Acropora (Plate Staghorn)",
+                            "Staghorn"
                         ]
                     },
                     {
@@ -68,30 +94,37 @@
                     {
                         "species_name": "Acropora Cytherea",
                         "species_typos": [
-                            "A.Cytherea"
+                            "A.Cytherea",
+                            "Acropora Chytherea",
+                            "A. Cytherea"
                         ]
                     },
                     {
-                        "species_name": "Acropora pulchra",
+                        "species_name": "Acropora Pulchra",
                         "species_typos": [
                             "Acroporapulchra",
                             "Acropora\t Pulchra",
-                            "Acropora \tPulchra"
+                            "Acropora \tPulchra",
+                            "Acropora Pulcha"
                         ]
                     },
                     {
-                        "species_name": "Acropora microphthalma",
+                        "species_name": "Acropora Microphthalma",
                         "species_typos": [
                             "Acropora \tMicrophthama",
                             "Acropora\t Microphthalm",
                             "Acropora \tMicrophthalma",
                             "Acropora\t Microphthalma (Starghorn)",
-                            "A. Microphhtalmata"
+                            "A. Microphhtalmata",
+                            "Acropora Microphthama",
+                            "Acropora\t Microphthalma"
                         ]
                     },
                     {
                         "species_name": "Acropora Austera",
-                        "species_typos": "A. Austera"
+                        "species_typos": [
+                            "A. Austera"
+                        ]
                     },
                     {
                         "species_name": "Acropora Clathrata",
@@ -109,7 +142,8 @@
                     {
                         "species_name": "Acropora Humilis",
                         "species_typos": [
-                            "A. Humilis"
+                            "A. Humilis",
+                            "Acropora Humulis"
                         ]
                     },
                     {
@@ -121,7 +155,9 @@
                     },
                     {
                         "species_name": "Acropora Intermedia",
-                        "species_typos": "A. Intermedia"
+                        "species_typos": [
+                            "A. Intermedia"
+                        ]
                     },
                     {
                         "species_name": "Acropora Downingi",
@@ -139,14 +175,59 @@
                         "species_name": "Acropora Monticulosa",
                         "species_typos": []
                     },
-                    {"species_name": "Acropora Formosa", "species_typos": ["A. Formosa"]}
+                    {
+                        "species_name": "Acropora Formosa",
+                        "species_typos": [
+                            "A. Formosa"
+                        ]
+                    },
+                    {
+                        "species_name": "Acropora Secale",
+                        "species_typos": [
+                            "Concinna"
+                        ]
+                    },
+                    {
+                        "species_name": "Acropora Cerealis",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Acropora Verweyi",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Acropora Seriata",
+                        "species_typos": [
+                            "Acropora Seriata(?)"
+                        ]
+                    },
+                    {
+                        "species_name": "Acropora Clathrata",
+                        "species_typos": [
+                            "A. Clathrata. The"
+                        ]
+                    },
+                    {
+                        "species_name": "Acropora Arabensis",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Acropora Aspera",
+                        "species_typos": [
+                            "A. Aera"
+                        ]
+                    }
                 ]
             },
             {
                 "genus_name": "Montipora",
                 "genus_typos": [
                     "Montiproa",
-                    "Montipora."
+                    "Montipora.",
+                    "Encrusting Montipora",
+                    "Montipora (Submasive Encrusting)",
+                    "Montipora Pachyseris",
+                    "Montipora Leptoseris"
                 ],
                 "genus_species": [
                     {
@@ -164,13 +245,15 @@
                     {
                         "species_name": "Montipora Tuberculosa",
                         "species_typos": [
-                            "M. Tuberculosa"
+                            "M. Tuberculosa",
+                            "M. Tuberculosa (55:0 +-24:4% Of All The Montipora"
                         ]
                     },
                     {
                         "species_name": "Montipora Digitata",
                         "species_typos": [
-                            "M. Divaricata"
+                            "M. Divaricata",
+                            "M. Digitata"
                         ]
                     },
                     {
@@ -179,13 +262,44 @@
                             "M. Foliosa",
                             "M. Foiliosa"
                         ]
+                    },
+                    {
+                        "species_name": "Montipora Capitata",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Montipora Informis",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Montipora Verrucosa",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Montipora Venosa",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Montipora Foveolata",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Montipora Patula",
+                        "species_typos": []
                     }
                 ]
             },
             {
                 "genus_name": "Alveopora",
                 "genus_typos": [],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Alveopora Spongiosa",
+                        "species_typos": [
+                            "A. Ongiosa"
+                        ]
+                    }
+                ]
             },
             {
                 "genus_name": "Astreopora",
@@ -205,7 +319,9 @@
                 "genus_species": [
                     {
                         "species_name": "Isopora palifera",
-                        "species_typos": "Palifera"
+                        "species_typos": [
+                            "Palifera"
+                        ]
                     }
                 ]
             }
@@ -217,7 +333,9 @@
             "Agariicidae",
             "Agaricidae",
             "Agaricia Agaricites",
-            "A. Agaricites"
+            "A. Agaricites",
+            "Undaria Agaricites",
+            "Agaricia Agaricites:"
         ],
         "genera": [
             {
@@ -231,7 +349,9 @@
                         "species_name": "Agaricia Agaricites",
                         "species_typos": [
                             "Agaricia\t Agaricites",
-                            "Agaricia Agaracites"
+                            "Agaricia Agaracites",
+                            "A. Agaricites",
+                            "Agaricia Agaricites Ecies ( A. Agaricites"
                         ]
                     },
                     {
@@ -241,12 +361,16 @@
                             "Agaricial\t Tennuifolia",
                             "A. Tenuifolia",
                             "A. Tennuifolia",
-                            "A . Tenuifolia"
+                            "A . Tenuifolia",
+                            "A Tenuifolia"
                         ]
                     },
                     {
                         "species_name": "Agaricia Fragilis",
-                        "species_typos": "Agaricia \tFragilis"
+                        "species_typos": [
+                            "Agaricia \tFragilis",
+                            "Agaricia  Fragilis"
+                        ]
                     },
                     {
                         "species_name": "Agaricia Grahamae",
@@ -263,7 +387,8 @@
                     {
                         "species_name": "Agaricia Lamarcki",
                         "species_typos": [
-                            "Argaricia Lamarcki"
+                            "Argaricia Lamarcki",
+                            "Agaracia Lamarcki"
                         ]
                     },
                     {
@@ -274,19 +399,26 @@
             },
             {
                 "genus_name": "Leptoseris",
-                "genus_typos": [],
+                "genus_typos": [
+                    "Leptoseris Cucullata",
+                    "Leptoseris Cuculata"
+                ],
                 "genus_species": []
             },
             {
                 "genus_name": "Pachyseris",
                 "genus_typos": [
-                    "Pachyseris;"
+                    "Pachyseris;",
+                    "Pachyeris Eciosa"
                 ],
                 "genus_species": []
             },
             {
                 "genus_name": "Pavona",
-                "genus_typos": [],
+                "genus_typos": [
+                    "Pavona Cactus",
+                    "Pavona."
+                ],
                 "genus_species": [
                     {
                         "species_name": "Pavona Clavus",
@@ -299,6 +431,26 @@
                         "species_typos": [
                             "Pavona\tFrondifera"
                         ]
+                    },
+                    {
+                        "species_name": "Pavona Gigantea",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Pavona Varians",
+                        "species_typos": [
+                            "P. Varians"
+                        ]
+                    }
+                ]
+            },
+            {
+                "genus_name": "Coeloseris",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Coeloseris Mayeri",
+                        "species_typos": []
                     }
                 ]
             }
@@ -310,19 +462,32 @@
         "genera": [
             {
                 "genus_name": "Lobophytum",
-                "genus_typos": [],
+                "genus_typos": [
+                    "Lobophytum Sinularia",
+                    "Lobophytum Sinularia."
+                ],
                 "genus_species": [
                     {
                         "species_name": "Lobophytum Depressum",
                         "species_typos": [
-                            "L. Depressum"
+                            "L. Depressum",
+                            "L. Depressum To A Lesser"
                         ]
                     },
                     {
                         "species_name": "Lobophytum Patulum",
                         "species_typos": [
-                            "L. Patulum"
+                            "L. Patulum",
+                            "Extent L. Patulum"
                         ]
+                    },
+                    {
+                        "species_name": "Lobophytum Pauciflorum",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Lobophytum Crassum",
+                        "species_typos": []
                     }
                 ]
             },
@@ -336,9 +501,19 @@
             {
                 "genus_name": "Sinularia",
                 "genus_typos": [
-                    "Sinularia."
+                    "Sinularia.",
+                    "Sinularia Alcyonium Genera",
+                    "Predominantly Leather Coral",
+                    "Sinnularia"
                 ],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Sinularia Flexibilis",
+                        "species_typos": [
+                            "Soft Coral Forms (Sinularia Flexibilis"
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -349,7 +524,54 @@
             {
                 "genus_name": "Erythropodium",
                 "genus_typos": [],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Erythropodium Caribaeorum",
+                        "species_typos": [
+                            "Encrusting Gorgonians (Erythropodium Caribbaeorum)",
+                            "Erythropodium Caribbaeorum"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "family_name": "Aplysinidae",
+        "family_typos": [],
+        "genera": [
+            {
+                "genus_name": "Aplysina",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Aplysina Fistularis",
+                        "species_typos": [
+                            "Aplysina Fistularia ( Yellow Tube Onge)"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "family_name": "Astrocoeniidae",
+        "family_typos": [],
+        "genera": [
+            {
+                "genus_name": "Stephanocoenia",
+                "genus_typos": [
+                    "Stephanocoenia Michelini",
+                    "Stephanocoenia Mechellini Palythoa  Ecies Unaffected Were Dichocoenia Stokesii"
+                ],
+                "genus_species": [
+                    {
+                        "species_name": "Stephanocoenia Intersepta",
+                        "species_typos": [
+                            "Stephanocoenia Intersepts"
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -368,10 +590,23 @@
                         "species_name": "Briareum Asbestinum",
                         "species_typos": [
                             "Briareum\t Asbestinum",
-                            "Briareum\t  Asbestinum"
+                            "Briareum\t  Asbestinum",
+                            "Asbestinum",
+                            "Briaeorun Asbestinum"
                         ]
                     }
                 ]
+            }
+        ]
+    },
+    {
+        "family_name": "Clavulariidae",
+        "family_typos": [],
+        "genera": [
+            {
+                "genus_name": "Carijoa",
+                "genus_typos": [],
+                "genus_species": []
             }
         ]
     },
@@ -382,7 +617,9 @@
             {
                 "genus_name": "Coscinaraea",
                 "genus_typos": [
-                    "Coscinarea"
+                    "Coscinarea",
+                    "Coscinarea Monile",
+                    "Coscinarea."
                 ],
                 "genus_species": []
             }
@@ -391,7 +628,8 @@
     {
         "family_name": "Dendrophylliidae",
         "family_typos": [
-            "Dendrophyllidae"
+            "Dendrophyllidae",
+            "Dendronepthiid Soft Corals"
         ],
         "genera": [
             {
@@ -422,7 +660,8 @@
                     {
                         "species_name": "Diploastrea Heliopora",
                         "species_typos": [
-                            "Diploastrea Heliopore"
+                            "Diploastrea Heliopore",
+                            "Heliopora"
                         ]
                     }
                 ]
@@ -439,9 +678,33 @@
             {
                 "genus_name": "Galaxea",
                 "genus_typos": [
-                    "Galazea"
+                    "Galazea",
+                    "Encrusting Coral (Galaxea)"
                 ],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Galaxea Astreata",
+                        "species_typos": [
+                            "Galexea Astreata"
+                        ]
+                    },
+                    {
+                        "species_name": "Galaxea Fascicularis",
+                        "species_typos": [
+                            "Galaxea Fasicularis"
+                        ]
+                    }
+                ]
+            },
+            {
+                "genus_name": "Euphyllia",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Euphyllia Glabrescens",
+                        "species_typos": []
+                    }
+                ]
             }
         ]
     },
@@ -462,7 +725,8 @@
                     "Favid",
                     "Favidae",
                     "Faviidae",
-                    "Favia."
+                    "Favia.",
+                    "Fvia"
                 ],
                 "genus_species": [
                     {
@@ -471,6 +735,20 @@
                             "F. Fragum",
                             "Favia Fragun"
                         ]
+                    },
+                    {
+                        "species_name": "Favia Favus",
+                        "species_typos": []
+                    }
+                ]
+            },
+            {
+                "genus_name": "Mussa",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Mussa Angulosa",
+                        "species_typos": []
                     }
                 ]
             }
@@ -487,19 +765,38 @@
             "Fungidaee",
             "Fungids",
             "Fungiids",
-            "Fungidaee"
+            "Fungidaee",
+            "Encrusting Coral Plate Coral",
+            "Plate Coral",
+            "Mushroom Coral",
+            "Plate Corals",
+            "Plate Encrusting Corals",
+            "Predominantly Encrusting Coral Plate Coral On This Reef",
+            "Predominantly Encrusting Coral Plate Coral",
+            "Predominantly Plate Coral",
+            "Plate Encrusting Coral",
+            "Fungid",
+            "Plating"
         ],
         "genera": [
             {
                 "genus_name": "Fungia",
                 "genus_typos": [
-                    "Fungi"
+                    "Fungi",
+                    "Fungiid (Fungia"
                 ],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Fungia Fungites",
+                        "species_typos": []
+                    }
+                ]
             },
             {
                 "genus_name": "Ctenactis",
-                "genus_typos": [],
+                "genus_typos": [
+                    "Ctenactis Sandhalolita)"
+                ],
                 "genus_species": []
             },
             {
@@ -510,12 +807,12 @@
             {
                 "genus_name": "Cycloseris",
                 "genus_typos": [],
-                "genus_species": []
-            },
-            {
-                "genus_name": "Diaseris",
-                "genus_typos": [],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Cycloseris Curvata",
+                        "species_typos": []
+                    }
+                ]
             },
             {
                 "genus_name": "Herpolitha",
@@ -530,6 +827,20 @@
                     "Sandhalolita"
                 ],
                 "genus_species": []
+            },
+            {
+                "genus_name": "Cycloseris",
+                "genus_typos": [
+                    "Diaseris"
+                ],
+                "genus_species": [
+                    {
+                        "species_name": "Cycloseris Distorta",
+                        "species_typos": [
+                            "Diaseris Distorta"
+                        ]
+                    }
+                ]
             }
         ]
     },
@@ -554,7 +865,27 @@
         "family_typos": [
             "Gorgonians"
         ],
-        "genera": []
+        "genera": [
+            {
+                "genus_name": "Gorgonia",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Gorgonia Ventalina",
+                        "species_typos": [
+                            "Common Sea Fan- Gorgonia Ventalina"
+                        ]
+                    }
+                ]
+            },
+            {
+                "genus_name": "Pseudopterogorgia",
+                "genus_typos": [
+                    "Sea Plumes- Pseudopterogorgia"
+                ],
+                "genus_species": []
+            }
+        ]
     },
     {
         "family_name": "Leptastreidae",
@@ -567,6 +898,40 @@
                 "genus_typos": [
                     "Lepastrea"
                 ],
+                "genus_species": [
+                    {
+                        "species_name": "Leptastrea Transversa",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Leptastrea Purpurea",
+                        "species_typos": [
+                            "Lepastrea Purpurea"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "family_name": "Incertae Sedis",
+        "family_typos": [],
+        "genera": [
+            {
+                "genus_name": "Cladocora",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Cladocora Caespitosa",
+                        "species_typos": [
+                            "Cladocora Caeitosa"
+                        ]
+                    }
+                ]
+            },
+            {
+                "genus_name": "Plerogyra",
+                "genus_typos": [],
                 "genus_species": []
             }
         ]
@@ -590,8 +955,42 @@
             {
                 "genus_name": "Lobophyllia",
                 "genus_typos": [
-                    "Symphyllia"
+                    "Symphyllia",
+                    "Lobopyllia",
+                    "Symphillia"
                 ],
+                "genus_species": [
+                    {
+                        "species_name": "Lobophyllia Hemprichii",
+                        "species_typos": [
+                            "Lobophylla Hemprichii"
+                        ]
+                    },
+                    {
+                        "species_name": "Lobophyllia Corymbosa",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Lobophyllia Robusta",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Lobophyllia Radians",
+                        "species_typos": [
+                            "Symphyllia Radians"
+                        ]
+                    },
+                    {
+                        "species_name": "Lobophyllia Recta",
+                        "species_typos": [
+                            "Symphyllia Recta"
+                        ]
+                    }
+                ]
+            },
+            {
+                "genus_name": "Oxypora",
+                "genus_typos": [],
                 "genus_species": []
             }
         ]
@@ -602,13 +1001,17 @@
         "genera": [
             {
                 "genus_name": "Meandrina",
-                "genus_typos": [],
+                "genus_typos": [
+                    "Meandrina]"
+                ],
                 "genus_species": [
                     {
                         "species_name": "Meandrina Meandrites",
                         "species_typos": [
                             "Meandrina\t Meandrites",
-                            "M. Meandrites"
+                            "M. Meandrites",
+                            "Meandrina Mendrites",
+                            "Meandrina Meandricites"
                         ]
                     }
                 ]
@@ -621,7 +1024,30 @@
                         "species_name": "Eusmilia Fastigiata",
                         "species_typos": [
                             "E.Fastigiata",
-                            "E. Fastigiata"
+                            "E. Fastigiata",
+                            "Eusmilia Fastigiana"
+                        ]
+                    }
+                ]
+            },
+            {
+                "genus_name": "Dendrogyra",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Dendrogyra Cylindrus",
+                        "species_typos": []
+                    }
+                ]
+            },
+            {
+                "genus_name": "Dichocoenia",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Dichocoenia Stokesi",
+                        "species_typos": [
+                            "Dichocoenia Stokesii"
                         ]
                     }
                 ]
@@ -647,20 +1073,29 @@
             },
             {
                 "genus_name": "Goniastrea",
-                "genus_typos": [],
+                "genus_typos": [
+                    "Goniastera",
+                    "Gonioastrea"
+                ],
                 "genus_species": [
                     {
                         "species_name": "Goniastrea Retiformis",
                         "species_typos": [
                             "Goniastrea Aer G. Retiformis",
-                            "G. Retiformis"
+                            "G. Retiformis",
+                            "Goniastrea Aer"
                         ]
                     },
                     {
                         "species_name": "Goniastrea Stelligera",
                         "species_typos": [
-                            "Stelligera"
+                            "Stelligera",
+                            "Favia Stelligera"
                         ]
+                    },
+                    {
+                        "species_name": "Goniastrea Edwardsi",
+                        "species_typos": []
                     }
                 ]
             },
@@ -678,6 +1113,14 @@
                     {
                         "species_name": "Platygyra Daedalea",
                         "species_typos": []
+                    },
+                    {
+                        "species_name": "Platygyra Lamellina",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Platygyra Sinensis",
+                        "species_typos": []
                     }
                 ]
             },
@@ -691,14 +1134,26 @@
             {
                 "genus_name": "Cyphastrea",
                 "genus_typos": [],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Cyphastrea Microphthalma",
+                        "species_typos": []
+                    }
+                ]
             },
             {
                 "genus_name": "Hydnophora",
                 "genus_typos": [
-                    "Sandhalolita"
+                    "Sandhalolita",
+                    "Hydnopora",
+                    "Hydrophora"
                 ],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Hydnophora Microconos",
+                        "species_typos": []
+                    }
+                ]
             },
             {
                 "genus_name": "Leptoria",
@@ -709,15 +1164,23 @@
                     {
                         "species_name": "Leptoria Phrygia",
                         "species_typos": [
-                            "Leptoria \tPhryga"
+                            "Leptoria \tPhryga",
+                            "Leptoria       Phryga"
                         ]
                     }
                 ]
             },
             {
                 "genus_name": "Favites",
-                "genus_typos": [],
-                "genus_species": []
+                "genus_typos": [
+                    "Favites Etc."
+                ],
+                "genus_species": [
+                    {
+                        "species_name": "Favites Abdita",
+                        "species_typos": []
+                    }
+                ]
             },
             {
                 "genus_name": "Orbicella",
@@ -730,7 +1193,13 @@
                             "Montastraea\t Annularis",
                             "M. Annularis",
                             "Annularis",
-                            "Montastrea Annularis"
+                            "Montastrea Annularis",
+                            "Montastraea  (= Annularis Complex)",
+                            "Montastraea Annularis (Complex)",
+                            "Montastraea Annularis",
+                            "Montastrea  Annularis",
+                            "Montastraea Cf. Annularis",
+                            "Montastrea Annularis."
                         ]
                     },
                     {
@@ -739,17 +1208,45 @@
                             "Faveolata",
                             "M.Faveolata",
                             "M. Faveolata",
-                            "Montastraea Faveolata"
+                            "Montastraea Faveolata",
+                            "Montastrea Faviolata",
+                            "Monastraea Faveolata",
+                            "Montastrea Faveolata"
                         ]
                     },
                     {
                         "species_name": "Orbicella Franksi",
                         "species_typos": [
                             "M. Franksi",
-                            "Montastraea Franksi"
+                            "Montastraea Franksi",
+                            "Montastrea Franksi",
+                            "Montastreae Franksii",
+                            "Montastraea Frankesi"
                         ]
                     }
                 ]
+            },
+            {
+                "genus_name": "Dipsastraea",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Dipsastraea Pallida",
+                        "species_typos": [
+                            "Pallida"
+                        ]
+                    }
+                ]
+            },
+            {
+                "genus_name": "Merulina",
+                "genus_typos": [],
+                "genus_species": []
+            },
+            {
+                "genus_name": "Mycedium",
+                "genus_typos": [],
+                "genus_species": []
             }
         ]
     },
@@ -764,7 +1261,13 @@
                 "genus_name": "Millepora",
                 "genus_typos": [
                     "Millapora",
-                    "Millipora"
+                    "Millipora",
+                    "Millepora  (Mainly Complanata)",
+                    "Millepora (Fire Coral)",
+                    "Millepora <Br>",
+                    "Millepora Soft Corals",
+                    "Fire Coral",
+                    "Millepora."
                 ],
                 "genus_species": [
                     {
@@ -772,14 +1275,20 @@
                         "species_typos": [
                             "Millapora\t Complanata",
                             "M. Complanata",
-                            "M. Complanta"
+                            "M. Complanta",
+                            "Millepora Complanta"
                         ]
                     },
                     {
                         "species_name": "Millepora Alcicornis",
                         "species_typos": [
                             "Millepora \tAlcicornis",
-                            "M. Alcicornis"
+                            "M. Alcicornis",
+                            "Millepora Alicornis",
+                            "Millepora        Alcicornis",
+                            "Millipora Alcicornis",
+                            "Milleporids Alcicornis",
+                            "Millepora Alcicornis."
                         ]
                     },
                     {
@@ -787,6 +1296,20 @@
                         "species_typos": [
                             "M. Squarrosa"
                         ]
+                    },
+                    {
+                        "species_name": "Millepora Complanata",
+                        "species_typos": [
+                            "Miliopora Complanata"
+                        ]
+                    },
+                    {
+                        "species_name": "Millepora Intricata",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Millepora Platyphylla",
+                        "species_typos": []
                     }
                 ]
             }
@@ -803,15 +1326,21 @@
                 "genus_name": "Montastraea",
                 "genus_typos": [
                     "Montastrea",
-                    "Montrastea"
+                    "Montrastea",
+                    "Montastrea Curta",
+                    "Montastraea Curta",
+                    "Montostrea"
                 ],
                 "genus_species": [
                     {
-                        "species_name": "Montastraea cavernosa",
+                        "species_name": "Montastraea Cavernosa",
                         "species_typos": [
                             "M.Cavernosa",
                             "Montastrea\t Cavernosa",
-                            "M. Cavernosa"
+                            "M. Cavernosa",
+                            "Montastraea Cavermosa",
+                            "Montastrea Cavernosa",
+                            "Montastraea Cavernosa At Least Eleven Other Ecies"
                         ]
                     }
                 ]
@@ -834,14 +1363,23 @@
                             "Colpophyllia.Natans",
                             "C.Natans",
                             "Colpophylia Natans",
-                            "C. Natans"
+                            "C. Natans",
+                            "Colpohylia Natans",
+                            "Colopophyllia Natans",
+                            "Colpophyilia Natans",
+                            "Natans",
+                            "Colpophylia Natans.",
+                            "Colpophyllia Natans."
                         ]
                     }
                 ]
             },
             {
                 "genus_name": "Diploria",
-                "genus_typos": [],
+                "genus_typos": [
+                    "All Diplorias",
+                    "Diploria Other Massive"
+                ],
                 "genus_species": [
                     {
                         "species_name": "Diploria Labyrinthiformis",
@@ -851,7 +1389,13 @@
                             "D. Labyrinthiformis",
                             "D . Labyrinthiformis",
                             "D. Labrynthiformis",
-                            "Diploria Labryinthiformis"
+                            "Diploria Labryinthiformis",
+                            "Diplora Labyrinthiformis",
+                            "Diploria Labrynthyformis",
+                            "Diploria Labyrithiformis",
+                            "Diploria Labririnthiformis",
+                            "Diplora Labrynthiformis",
+                            "D. Labyrinthyformis"
                         ]
                     }
                 ]
@@ -867,7 +1411,9 @@
                             "Diplori A\tStrigosa",
                             "D. Strigosa",
                             "D . Strigosa",
-                            "Diploria Strigosa"
+                            "Diploria Strigosa",
+                            "Diplora Strigosa",
+                            "Diplorea Strigosa"
                         ]
                     },
                     {
@@ -881,6 +1427,38 @@
             },
             {
                 "genus_name": "Scolymia",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Scolymia Cubensis",
+                        "species_typos": []
+                    }
+                ]
+            },
+            {
+                "genus_name": "Manicina",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Manicina Areolata",
+                        "species_typos": []
+                    }
+                ]
+            },
+            {
+                "genus_name": "Mussismilia",
+                "genus_typos": [
+                    "Mussismilia Hiida"
+                ],
+                "genus_species": []
+            },
+            {
+                "genus_name": "Mycetophyllia",
+                "genus_typos": [],
+                "genus_species": []
+            },
+            {
+                "genus_name": "Isophyllia",
                 "genus_typos": [],
                 "genus_species": []
             }
@@ -910,6 +1488,27 @@
         "genera": [
             {
                 "genus_name": "Xestospongia",
+                "genus_typos": [
+                    "Xestoongia"
+                ],
+                "genus_species": [
+                    {
+                        "species_name": "Xestospongia Muta",
+                        "species_typos": [
+                            "Muta (Caribbean Barrel Onge)",
+                            "Giant Barrel Onges (Xestoongia Muta)"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "family_name": "Plerogyridae",
+        "family_typos": [],
+        "genera": [
+            {
+                "genus_name": "Physogyra",
                 "genus_typos": [],
                 "genus_species": []
             }
@@ -935,7 +1534,9 @@
                 "genus_species": [
                     {
                         "species_name": "Plexaurella Nutans",
-                        "species_typos": []
+                        "species_typos": [
+                            "Plexaurella Nutans."
+                        ]
                     }
                 ]
             },
@@ -970,16 +1571,21 @@
                 ],
                 "genus_species": [
                     {
-                        "species_name": "Pocillopora Verrucosa",
+                        "species_name": "Pocillopora Verrucosa ",
                         "species_typos": [
                             "P. Verrucosa",
                             "Pocilloproa Verrucosa",
-                            "P. Verrucosa Pale"
+                            "P. Verrucosa Pale",
+                            "Pocillopora Verrusosa"
                         ]
                     },
                     {
                         "species_name": "Pocillopora Damicornis",
                         "species_typos": [
+                            "P. Damicornis",
+                            "Pocilopora Damicornis",
+                            "Pocilipora Damicornis",
+                            "Pocillopora Damicornis.",
                             "P. Damicornis"
                         ]
                     },
@@ -989,8 +1595,14 @@
                             "Pocillopora Eydoxi",
                             "P. Eydouxi",
                             "Pocillopora Eydouxi",
-                            "Pocillopora Eudoxii"
+                            "Pocillopora Eudoxii",
+                            "Pocillopora Eydox",
+                            "Pocillipora Eydouxi"
                         ]
+                    },
+                    {
+                        "species_name": "Pocillopora Elegans",
+                        "species_typos": []
                     }
                 ]
             },
@@ -1000,14 +1612,46 @@
                     "Seriatiopora",
                     "Seritopora"
                 ],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Seriatopora Hystrix",
+                        "species_typos": [
+                            "Seriotopora Hystrix"
+                        ]
+                    },
+                    {
+                        "species_name": "Seriatopora Aculeata",
+                        "species_typos": [
+                            "Seriatopora Aculeta"
+                        ]
+                    }
+                ]
             },
             {
                 "genus_name": "Stylophora",
                 "genus_typos": [
                     "Stylopora"
                 ],
-                "genus_species": []
+                "genus_species": [
+                    {
+                        "species_name": "Stylophora Pistillata",
+                        "species_typos": [
+                            "Stylophora Pistillate"
+                        ]
+                    }
+                ]
+            },
+            {
+                "genus_name": "Madracis",
+                "genus_typos": [
+                    "Madracis Mirabilis"
+                ],
+                "genus_species": [
+                    {
+                        "species_name": "Madracis Formosa",
+                        "species_typos": []
+                    }
+                ]
             }
         ]
     },
@@ -1015,7 +1659,8 @@
         "family_name": "Poritidae",
         "family_typos": [
             "Pritidae",
-            "Porites"
+            "Porites",
+            "Poritidae Boulder Corals"
         ],
         "genera": [
             {
@@ -1026,7 +1671,14 @@
                     "Porites.",
                     "Massive Porites",
                     "Scleractinian Porites",
-                    "Branched Porites"
+                    "Branched Porites",
+                    "Porites Bommies",
+                    "Massive Corals Eecially Patches Of Porites",
+                    "Some Porites",
+                    "Massive Porties",
+                    "Porites Massive",
+                    "Porites Branching",
+                    "Brain Corals Branched Porites"
                 ],
                 "genus_species": [
                     {
@@ -1036,7 +1688,8 @@
                             "Porities\t Porites",
                             "P . Porites",
                             "P. Porites",
-                            "Pories Porites"
+                            "Pories Porites",
+                            "Porites Porites:"
                         ]
                     },
                     {
@@ -1049,7 +1702,8 @@
                             "P. Astereoides",
                             "P. Astreoides",
                             "Porites Asteriodes",
-                            "Porites Asteroids"
+                            "Porites Asteroids",
+                            "P. Astereoides."
                         ]
                     },
                     {
@@ -1101,6 +1755,18 @@
                     {
                         "species_name": "Porites Rus",
                         "species_typos": []
+                    },
+                    {
+                        "species_name": "Porites Compressa",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Porites Evermanni",
+                        "species_typos": []
+                    },
+                    {
+                        "species_name": "Pavona Maldivensis",
+                        "species_typos": []
                     }
                 ]
             },
@@ -1120,8 +1786,21 @@
         "genera": [
             {
                 "genus_name": "Psammocora",
-                "genus_typos": [],
-                "genus_species": []
+                "genus_typos": [
+                    "Psammacora"
+                ],
+                "genus_species": [
+                    {
+                        "species_name": "Psammocora Stellata",
+                        "species_typos": [
+                            "Psammacora Stellata"
+                        ]
+                    },
+                    {
+                        "species_name": "Psammocora Digitata",
+                        "species_typos": []
+                    }
+                ]
             }
         ]
     },
@@ -1140,7 +1819,7 @@
                 ],
                 "genus_species": [
                     {
-                        "species_name": "Siderastrea radians",
+                        "species_name": "Siderastrea Radians",
                         "species_typos": [
                             "S.\nRadians",
                             "S. Radians"
@@ -1154,8 +1833,17 @@
                             "Siderea\t Siderastrea",
                             "S. Siderea",
                             "Sidearstrea Sidereal",
-                            "Sidearstrea Siderea"
+                            "Sidearstrea Siderea",
+                            "Siderastrea Sidera",
+                            "Siderastrea Sidereal",
+                            "Sidereastrea Siderea",
+                            "Siderea",
+                            "Siderastrea Siderea Are The Most Affected Within The Hard Corals."
                         ]
+                    },
+                    {
+                        "species_name": "Siderastrea Stellata",
+                        "species_typos": []
                     }
                 ]
             }
@@ -1167,13 +1855,39 @@
         "genera": [
             {
                 "genus_name": "Palythoa",
-                "genus_typos": [],
+                "genus_typos": [
+                    "The Zoanthid Palythoa"
+                ],
                 "genus_species": [
                     {
                         "species_name": "Palythoa Caribaeorum",
                         "species_typos": [
                             "Palythoa\t  Caribbaeorum",
-                            "Palythoa Caribbea"
+                            "Palythoa Caribbea",
+                            "Caribbaeorum",
+                            "Palythoa Caribaeourm",
+                            "Palythoa Caribbaeorum",
+                            "Palythoa Caribaerum",
+                            "Palythoa Caribbea.",
+                            "Zoanthids (Palythoa Caribbaeorum)"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "family_name": "Tubiporidae",
+        "family_typos": [],
+        "genera": [
+            {
+                "genus_name": "Tubipora",
+                "genus_typos": [],
+                "genus_species": [
+                    {
+                        "species_name": "Tubipora Musica",
+                        "species_typos": [
+                            "Organ Pipe Coral"
                         ]
                     }
                 ]
@@ -1184,7 +1898,8 @@
         "family_name": "Zoanthidae",
         "family_typos": [
             "Zoanthids",
-            "Zooanthid"
+            "Zooanthid",
+            "Zooantids"
         ],
         "genera": []
     }
