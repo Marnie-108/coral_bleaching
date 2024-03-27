@@ -26,14 +26,34 @@ def build_str(string: str, key: str) -> str:
 
 
 def clean_data(string: str, substrings: tuple) -> list:
-    """TODO"""
+    """Prepares the data to enter other cleaning functions by delegating to remove_substr and
+    remove_trailing character then stripping and titling each element to make sure the data is uniform
+    and has no unnecessary extra data.
+
+    Parameters:
+        string (str): data from a single row of a single column
+        substrings (tuple): tuple of substrings to be removed
+
+    Returns:
+        list: each individual value from the string of data made uniform and with any extra data removed
+    """
 
     string = remove_substr(remove_trailing_char(string, ","), substrings)
     return [element.strip().title() for element in string.split(",")]
 
 
 def lookup_family(families: list, lookups: list, new_string: str) -> str:
-    """TODO"""
+    """Loops over each family from a list of families from a single row of the "CORAL_FAMILY" column and
+    delegates to match_family() to find the correct family in the classification then concatenates the correct
+    family name to a string.
+
+    Parameters:
+        families (list): list of families from a single row of the "CORAL_FAMILY" column
+        lookups (list): list of dictionaries, classfication of taxonomy
+
+    Returns:
+        str : string of concatenated and corrected family names
+    """
 
     new_string = ""
     for family in families:
@@ -45,10 +65,20 @@ def lookup_family(families: list, lookups: list, new_string: str) -> str:
     return new_string
 
 
-def lookup_genus(genera: list, lookups: list, new_string: str) -> tuple[str, str]:
-    """TODO"""
+def lookup_genus(genera: list, lookups: list) -> tuple[str, list]:
+    """Loops over each element from a list of species from a single row of the "CORAL_SPECIES" column and
+    delegates to match_genus() to find the correct genus in the classification then concatenates the correct
+    genus name to a string. It also utilises the design of the classification to find the family the genus
+    belongs to and adds unique family names to a list - families.
 
-    new_string = ""
+    Parameters:
+        genera (list): list of elements from a single row of the "CORAL_SPECIES" column
+        lookups (list): list of dictionaries, classfication of taxonomy
+
+    Returns:
+        tuple: string of identified genera and list of their families.
+    """
+
     families = set()
     for genus in genera:
         genus_string, genus_families = match_genus(
@@ -66,8 +96,20 @@ def lookup_genus(genera: list, lookups: list, new_string: str) -> tuple[str, str
     return new_string, list(families)
 
 
-def lookup_species(species: list, lookups: list, new_string: str) -> str:
-    """TODO"""
+def lookup_species(species: list, lookups: list, new_string: str) -> tuple:
+    """Loops over each element from a list of species from a single row of the "CORAL_SPECIES" column and
+    delegates to match_species() to find the correct species in the classification then concatenates the correct
+    species name to a string. It also utilises the design of the classification to find the family and genus the
+    species belongs to and adds unique family and genera names to the lists families and genera.
+
+    Parameters:
+        species (list): list of species from a single row of the "CORAL_SPECIES" column
+        lookups (list): list of dictionaries, classfication of taxonomy
+
+    Returns:
+        tuple: string of species names and two lists of associated genera and families respectively
+
+    """
 
     new_string = ""
     for species_ in species:
@@ -181,7 +223,8 @@ def read_json(filepath, encoding="utf-8"):
 
 
 def remove_substr(string: str, substrings: tuple) -> str:
-    """Removes words which are not relative to the data or get in the way of the analysis of data and returns the data (string) without those substrings.
+    """Removes words which are not relative to the data or get in the way of the analysis of data and
+    returns the data (string) without those substrings.
 
     Parameters:
         string (str): the data we may need to remove a substring from
