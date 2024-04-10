@@ -82,6 +82,7 @@ def get_genus_name(lookup: dict, name: str) -> str | None:
         str: the genus name if found in < lookup >, otherwise None
     """
 
+    # uses multi-line if statement
     for genus in lookup["genera"]:
         genus_name = genus.get("genus_name")
         genus_typos = genus.get("genus_typos")
@@ -104,6 +105,7 @@ def get_species_name(lookup: dict, name: str) -> str | None:
         str: the species name if found in < lookup >, otherwise None
     """
 
+    # uses multi-line if statement
     if lookup["genera"]:
         for genus in lookup["genera"]:
             genus_name = genus.get("genus_name")
