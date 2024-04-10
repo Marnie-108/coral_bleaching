@@ -2,6 +2,8 @@ import pandas as pd
 import csv
 import json
 from pathlib import Path
+import pathlib as pl
+import umpyutl as umpy
 
 
 def read_csv(filepath, encoding="utf-8", newline="", delimiter=","):
@@ -950,47 +952,22 @@ for sp in species_:
     found = False
     get_out = False
 
-print(f"New Species: {len(unfound_sp)}")
+# print(f"New Species: {len(unfound_sp)}")
 for sp in unfound_sp:
-    print(sp)
+    pass
+   # print(sp)
 
-# common = []
+filepath = pl.Path("./coral_bleaching-sorted.csv").resolve()
+data = umpy.read.from_csv(filepath)
+headers = data[0]
+reefs = data[1:]
 
-# for sp in unfound_sp:
-#     if "cropora" in sp or "orites" in sp or "avia" in sp or "ungia" in sp or "ocillopora" in sp or "garicia" in sp:
-#         common.append(sp)
+ID_count = 0
 
-# print(common)
-# print(len(common))
+print(len(reefs))
 
-# new_sp4 = []
+for i in range(len(reefs)):
+    if reefs[i][0]:
+        ID_count +=1
 
-# for sp in unfound_sp:
-#     if sp in common:
-#         pass
-#     elif "(" in sp or ")" in sp or "!" in sp or "/" in sp or "%" in sp or "=" in sp or "<" in sp:
-#         pass
-#     elif "A" in sp or "B" in sp or "C" in sp:
-#         pass
-#     else:
-#         new_sp4.append(sp)
-
-# print(len(new_sp4))
-# for sp in new_sp4:
-#     print(sp)
-# uncommon = []
-
-# for sp in unfound_sp:
-#     if "cropora" in sp or "orites" in sp or "avia" in sp or "ungia" in sp or "ocillopora" in sp or "garicia" in sp:
-#         pass
-#     else:
-#         uncommon.append(sp)
-
-# print(len(uncommon))
-# alph_count = 0
-# for sp in new_sp4:
-#     if "A" in sp or "B" in sp or "C" in sp:
-#         alph_count +=1
-#         print(sp)
-
-# print(alph_count)
+print(ID_count)
