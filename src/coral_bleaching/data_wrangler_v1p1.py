@@ -126,7 +126,18 @@ def lookup_species(species: list, lookups: list, new_string: str) -> tuple:
 
 
 def match_family(lookups: list, family: str, new_string: str) -> str:
-    """TODO"""
+    """Loops over lookups comparing family value to each correct family name within the classification
+    and the typos associated with said family name. If the value matches either, the correct family name
+    is returned.
+
+    Parameters:
+        lookups (list): list of dictionaries, classfication of taxonomy
+        family (str): single family name from a single row of the "CORAL_FAMILY" column
+
+    Returns:
+        str: correct family name
+    """
+
     for lookup in lookups:
         if family == lookup["family_name"]:
             print(f"family match: {family}")
@@ -139,27 +150,31 @@ def match_family(lookups: list, family: str, new_string: str) -> str:
     return ""  # avoid returning None.
 
 
-def match_genus(lookups: list, genus: str, new_string: str) -> tuple[str, str]:
-    """TODO"""
+def match_genus(lookups: list, genus: str, new_string: str) -> tuple[str, list]:
+    """Loops over lookups comparing genus value to each correct genus name within the classification
+    and the typos associated with said genus name. If the value matches either, the correct genus name
+    is returned. The family name of that 'lookup' is also added to a list of family names.
+
+    Parameters:
+        lookups (list): list of dictionaries, classfication of taxonomy
+        genus (str): """
     for lookup in lookups:
-        families = []
+        families = set()
         if lookup["genera"]:
             for gen in lookup["genera"]:
                 if gen["genus_name"] in genus:
                     print(f"genus match: {genus}")
                     family = lookup["family_name"]
-                    if family not in families:
-                        families.append(family)
-                    return build_str(new_string, gen["genus_name"]), families
+                    families.update(family)
+                    return build_str(new_string, gen["genus_name"]), list(families)
                 elif genus in gen["genus_typos"]:
                     print(f"genus typo: {genus}")
                     family = lookup["family_name"]
-                    if family not in families:
-                        families.append(family)
-                    return build_str(new_string, gen["genus_name"]), families
+                    families.update(family)
+                    return build_str(new_string, gen["genus_name"]), list(families)
                 else:
                     continue
-    return "", ""  # avoid returning None.
+    return "", []  # avoid returning None.
 
 
 def match_species(lookups: list, species: str, new_string: str) -> str:
@@ -397,7 +412,7 @@ def main():
             # TODO need to move genus values to new genus element etc.
 
             new_string = ""
-            val = lookup_genus(species, lookups, new_string)
+            val = lookup_genus(species, lookups)
             new_string, genus_families = val
             print(f"\nnew_string = {new_string}")
             print(f"\ngenus_families = {genus_families}")
