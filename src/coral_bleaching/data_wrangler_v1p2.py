@@ -60,7 +60,18 @@ def clean_data(string: str, substrings: tuple) -> list:
 
 
 def get_family_name(lookup: dict, name: str) -> str | None:
-    """TODO"""
+    """
+    Obtains the family_name and family_typos from a single lookup then compares the current value
+    with them to find a match. If the value < name > matches < family_name > or any values in
+    < family_typos > then < family_name > is returned.
+
+    Parameters:
+         lookup (dict): a dictionary containing family names
+         name (str): the name of the family
+
+    Returns:
+        str: the family name found in < lookup >, otherwise None
+    """
 
     family_name = lookup.get("family_name")
     family_typos = lookup.get("family_typos")
@@ -203,11 +214,11 @@ def remove_substring(string: str, substrings: tuple) -> str:
         str: the string with any substrings removed
     """
 
-    # org_len: int = len(string)
     for substring in substrings:
-        string = string.lower().replace(substring, "")
-        # if len(string) < org_len:
-        #     return string
+        if substring == "and " or substring == "and\n":
+            string = string.lower().replace(substring, ",")
+        else:
+            string = string.lower().replace(substring, "")
     return string
 
 
