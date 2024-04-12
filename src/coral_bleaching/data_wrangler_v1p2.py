@@ -132,8 +132,8 @@ def get_species_name(lookup: dict, name: str) -> str | None:
                             or species_name.lower() in name.lower()
                         )
                     ) or (species_typos and name in species_typos):
-                        return f"{genus_name} {species_name.split()[1].lower()}"
-    return None
+                        return genus_name, f"{genus_name} {species_name.split()[1].lower()}"
+    return None, None
 
 
 def lookup_families(data: list, lookups: list) -> str:
@@ -193,13 +193,20 @@ def lookup_species(data: list, lookups: list) -> str:
     """
 
     string = ""
+    families = []
+    genera = []
     for element in data:
         for lookup in lookups:
-            name = get_species_name(lookup, element)
+            genus_name, name = get_species_name(lookup, element)
             if name:
                 string = build_string(string, name)
+                family = lookup["family_name"]
+                if family and family not in families:
+                    families.append(family)
+                if genus_name and genus_name not in genera:
+                    genera.append(genus_name)
 
-    return string
+    return string, families, genera
 
 
 def remove_substring(string: str, substrings: tuple) -> str:
@@ -284,7 +291,21 @@ def main():
                             reefs[i][coral_family_idx], family
                         )
 
-            reefs[i][coral_species_idx + 1] = lookup_species(species, lookups)
+            reefs[i][coral_species_idx + 1], species_families, species_genera = lookup_species(species, lookups)
+
+            if species_families:
+                for family in species_families:
+                    if family not in reefs[i][coral_family_idx]:
+                        reefs[i][coral_family_idx] = build_string(
+                            reefs[i][coral_family_idx], family
+                        )
+
+            if species_genera:
+                for genus in species_genera:
+                    if genus not in reefs[i][coral_species_idx]:
+                        reefs[i][coral_species_idx] = build_string(
+                            reefs[i][coral_species_idx], genus
+                        )
 
     # Add header
     headers.insert(coral_species_idx, "CORAL_GENUS")
