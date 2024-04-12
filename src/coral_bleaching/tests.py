@@ -401,7 +401,7 @@ def main():
     test4 = clean_data2("Acropora,", SUBSTRINGS)
     # tests removing trailing character
 
-    print(f"{test1}\n{test2}\n{test3}\n{test4}")
+    # print(f"{test1}\n{test2}\n{test3}\n{test4}")
 
     # Testing lookup_family()
 
@@ -426,15 +426,15 @@ def main():
 
     new_string = ""
 
-    # # Tests
-    # test5 = lookup_family(["fam1", "fam2", "fam3"], lookups, new_string)
-    # # tests looking up the correct names
-    # test6 = lookup_family(["fams", "famy", "fams3"], lookups, new_string)
-    # # tests looking up all typos
-    # test7 = lookup_family(["fam1", "fams2", "random"], lookups, new_string)
-    # # tests looking up a correct name, a typo and a word not in the lookup
+    # Tests
+    test5 = lookup_family(["fam1", "fam2", "fam3"], lookups, new_string)
+    # tests looking up the correct names
+    test6 = lookup_family(["fams", "famy", "fams3"], lookups, new_string)
+    # tests looking up all typos
+    test7 = lookup_family(["fam1", "fams2", "random"], lookups, new_string)
+    # tests looking up a correct name, a typo and a word not in the lookup
 
-    # print(f"Test5: {test5}\nTest6: {test6}\nTest7: {test7}")
+    print(f"Test5: {test5}\nTest6: {test6}\nTest7: {test7}")
 
 
 
