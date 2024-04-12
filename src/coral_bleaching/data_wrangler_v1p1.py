@@ -65,7 +65,7 @@ def lookup_family(families: list, lookups: list, new_string: str) -> str:
     return new_string
 
 
-def lookup_genus(genera: list, lookups: list) -> tuple[str, list]:
+def lookup_genus(genera: list, lookups: list, new_string: str) -> tuple[str, list]:
     """Loops over each element from a list of species from a single row of the "CORAL_SPECIES" column and
     delegates to match_genus() to find the correct genus in the classification then concatenates the correct
     genus name to a string. It also utilises the design of the classification to find the family the genus
@@ -412,7 +412,7 @@ def main():
             # TODO need to move genus values to new genus element etc.
 
             new_string = ""
-            val = lookup_genus(species, lookups)
+            val = lookup_genus(species, lookups, new_string)
             new_string, genus_families = val
             print(f"\nnew_string = {new_string}")
             print(f"\ngenus_families = {genus_families}")
