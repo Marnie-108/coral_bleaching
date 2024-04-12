@@ -426,17 +426,67 @@ def main():
 
     new_string = ""
 
-    # Tests
-    test5 = lookup_family(["fam1", "fam2", "fam3"], lookups, new_string)
-    # tests looking up the correct names
-    test6 = lookup_family(["fams", "famy", "fams3"], lookups, new_string)
-    # tests looking up all typos
-    test7 = lookup_family(["fam1", "fams2", "random"], lookups, new_string)
-    # tests looking up a correct name, a typo and a word not in the lookup
+    # # Tests
+    # test5 = lookup_family(["fam1", "fam2", "fam3"], lookups, new_string)
+    # # tests looking up the correct names
+    # test6 = lookup_family(["fams", "famy", "fams3"], lookups, new_string)
+    # # tests looking up all typos
+    # test7 = lookup_family(["fam1", "fams2", "random"], lookups, new_string)
+    # # tests looking up a correct name, a typo and a word not in the lookup
 
-    print(f"Test5: {test5}\nTest6: {test6}\nTest7: {test7}")
+    # print(f"Test5: {test5}\nTest6: {test6}\nTest7: {test7}")
 
+    # Testing read_csv()
 
+    # try:
+    #     filepath = Path("test_csv.csv").resolve()
+    #     test8 = read_csv(filepath)
+    #     print(f"Test8: {test8[0]}")
+    # except:
+    #     print("Error in reading csv")
+    # # Tests reading real csv in correct folder
+
+    # try:
+    #     filepath = Path("fake_csv.csv").resolve()
+    #     test9 = read_csv("fake_csv.csv")
+    #     print(f"Test9: {test9[0]}")
+    # except:
+    #     print("Error in reading csv")
+    # # Tests reading a csv which doesn't exist
+
+    # try:
+    #     filepath = Path("wf_test_csv.csv").resolve()
+    #     test10 = read_csv(filepath)
+    #     print(f"Test10: {test10[0]}")
+    # except:
+    #     print("Error in reading csv")
+    # # Tests reading a csv which is in the wrong folder
+
+    # # Testing read_json():
+
+    # try:
+    #     filepath = Path("test_json.json").resolve()
+    #     test11 = read_json(filepath)
+    #     print(test11[0])
+    # except:
+    #     print("Error in reading json")
+    # # Tests reading real json in correct folder
+
+    # try:
+    #     filepath = Path("fake_json.json").resolve()
+    #     test11 = read_json(filepath)
+    #     print(test11[0])
+    # except:
+    #     print("Error in reading json")
+    # # Tests reading a csv which doesn't exist
+
+    # try:
+    #     filepath = Path("wf_test_json.json").resolve()
+    #     test11 = read_json(filepath)
+    #     print(test11[0])
+    # except:
+    #     print("Error in reading json")
+    # # Tests reading a json which is in the wrong folder
 
 if __name__ == "__main__":
     main()
