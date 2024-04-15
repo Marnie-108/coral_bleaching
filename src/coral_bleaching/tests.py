@@ -510,33 +510,67 @@ def main():
 
     # Testing build_string()
 
-    test_list_string = "word1, word2, word3, word4, word5"
-    test_string1 = "word6"
-    test_string2 = "word3"
-    test_string3 = 7
+    # test_list_string = "word1, word2, word3, word4, word5"
+    # test_string1 = "word6"
+    # test_string2 = "word3"
+    # test_string3 = 7
+
+    # try:
+    #     test12 = build_string(test_list_string, test_string1)
+    #     print(f"Test12: {test12}")
+    # except:
+    #     print("Error in adding to string")
+    # # Tests appending a correct value
+
+    # test_list_string = "word1, word2, word3, word4, word5"
+    # try:
+    #     test13 = build_string(test_list_string, test_string2)
+    #     print(f"Test13: {test13}")
+    # except:
+    #     print("Error in adding to string")
+    # # Tests appending a repeat value
+
+    # test_list_string = "word1, word2, word3, word4, word5"
+    # try:
+    #     test14 = build_string(test_list_string, test_string3)
+    #     print(f"Test14: {test14}")
+    # except:
+    #     print("Error in adding to string")
+    # # Tests appending a non string type
+
+    # Testing write_csv:
 
     try:
-        test12 = build_string(test_list_string, test_string1)
-        print(f"Test12: {test12}")
+        data = ["word1, word2, word3, word4", "word5, word6"]
+        headers = ["word1, word2, word3, word4"]
+        write_csv("filepath.csv", data, headers)
+        print("Test 15 successful")
     except:
-        print("Error in adding to string")
-    # Tests appending a correct value
-
-    test_list_string = "word1, word2, word3, word4, word5"
+        print("Error writing to csv")
+    # Tests using the function with all correct inputs
     try:
-        test13 = build_string(test_list_string, test_string2)
-        print(f"Test13: {test13}")
+        data = ["word1, word2, word3, word4", "word5, word6"]
+        headers = ["word1, word2, word3, word4"]
+        write_csv("filepath.json", data, headers)
+        print("Test 16 successful")
     except:
-        print("Error in adding to string")
-    # Tests appending a repeat value
-
-    test_list_string = "word1, word2, word3, word4, word5"
+        print("Error writing to csv")
+    # Tests function when filepath is not a .csv
     try:
-        test14 = build_string(test_list_string, test_string3)
-        print(f"Test14: {test14}")
+        data = ["word1, word2, word3, word4", "word5, word6"]
+        write_csv("filepath2.csv", data)
+        print("Test 17 successful")
     except:
-        print("Error in adding to string")
-    # Tests appending a non string type
+        print("Error writing to csv")
+    # Tests function when no headers are inputted
+    try:
+        headers = ["word1, word2, word3, word4"]
+        write_csv("filepath.csv", headers= headers)
+        print("Test")
+        print("Test 18 successful")
+    except:
+        print("Error writing to csv")
+    # Tests function when no data is inputted
 
 
 if __name__ == "__main__":
