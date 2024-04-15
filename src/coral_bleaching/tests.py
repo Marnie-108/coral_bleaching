@@ -44,6 +44,26 @@ def build_str(string: str, key: str) -> str:
         string += f", {key}"
     return string
 
+def build_string(string: str, substring: str) -> str:
+    """Builds a new string by concatenating < string > and < substring > if the substring is not
+    found in the string.
+
+    Parameters:
+        string (str): the string we want to concatenate
+        substring (str): the string we want to concatenate to < string >
+
+    Returns:
+        str: the new string
+    """
+
+    if string:
+        if substring not in string:
+            return string + f", {substring}"
+        else:
+            return string
+    else:
+        return substring
+
 
 def clean_data(string: str, substrings: tuple) -> list:
     """Prepares the data to enter other cleaning functions by delegating to remove_substr and
@@ -487,6 +507,37 @@ def main():
     # except:
     #     print("Error in reading json")
     # # Tests reading a json which is in the wrong folder
+
+    # Testing build_string()
+
+    test_list_string = "word1, word2, word3, word4, word5"
+    test_string1 = "word6"
+    test_string2 = "word3"
+    test_string3 = 7
+
+    try:
+        test12 = build_string(test_list_string, test_string1)
+        print(f"Test12: {test12}")
+    except:
+        print("Error in adding to string")
+    # Tests appending a correct value
+
+    test_list_string = "word1, word2, word3, word4, word5"
+    try:
+        test13 = build_string(test_list_string, test_string2)
+        print(f"Test13: {test13}")
+    except:
+        print("Error in adding to string")
+    # Tests appending a repeat value
+
+    test_list_string = "word1, word2, word3, word4, word5"
+    try:
+        test14 = build_string(test_list_string, test_string3)
+        print(f"Test14: {test14}")
+    except:
+        print("Error in adding to string")
+    # Tests appending a non string type
+
 
 if __name__ == "__main__":
     main()
